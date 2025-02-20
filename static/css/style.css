@@ -42,7 +42,6 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 1.5vw;
     margin-left: 9vw;
-    margin-top: 170px;
 }
 
 .item {
