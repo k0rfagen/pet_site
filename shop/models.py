@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
@@ -7,3 +8,12 @@ class Items(models.Model):
     image = models.ImageField(upload_to='media/%Y%m%d', blank=True)
     def __str__(self):
         return f'{self.name}, price: {self.price}'
+
+class CartItem(models.Model):
+    item = models.ForeignKey(Items, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+    cart_id = models.CharField(max_length=100)
+    def get_cost(self):
+        return self.item.price * self.quantity
+    def __str__(self):
+        return f'{self.quantity} x {self.item} in {self.cart_id}'
