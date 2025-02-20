@@ -64,6 +64,11 @@ body {
     margin: 0;
 }
 
+.item-img img {
+    width: 200px;
+    border-radius: 10px;
+}
+
 .item h1,
 .item h2 {
     margin: 0;
