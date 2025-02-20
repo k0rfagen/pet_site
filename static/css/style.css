@@ -15,7 +15,7 @@ body {
     width: 100vw;
 }
 
-.header img {
+.header-img img {
     position: absolute;
     width: 100vw;
     left: -10px;
@@ -29,14 +29,10 @@ body {
     left: 0;
     top: 3vw;
     width: 100vw;
-    margin-top: 3vw;
     z-index: 101;
     cursor: pointer;
     display: flex;
     justify-content: center;
-}
-
-.header-logo img {
     height: 3vw;
 }
 
