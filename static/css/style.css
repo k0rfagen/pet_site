@@ -65,8 +65,8 @@ body {
 }
 
 .item-img img {
+    border-radius: 10%;
     width: 200px;
-    border-radius: 10px;
 }
 
 .item h1,
