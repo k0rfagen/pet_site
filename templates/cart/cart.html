@@ -8,6 +8,7 @@
 {% for item in cart_items %}
     <h1>{{ item.item.name }}</h1>
     <h2>{{ item.quantity }} шт. - {{ item.get_cost }}</h2>
+    <img width="200" src="{{ item.item.image.url }}" alt="">
     <form method="post" action="{% url 'remove_from_cart' item.item.id %}">
         {% csrf_token %}
         <button type="submit">Удалить</button>
