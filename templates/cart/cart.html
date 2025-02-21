@@ -2,18 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/general.css">
+    <link rel="stylesheet" href="/static/css/cart.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Корзина</title>
 </head>
 <body>
-{% for item in cart_items %}
-    <h1>{{ item.item.name }}</h1>
-    <h2>{{ item.quantity }} шт. - {{ item.get_cost }}</h2>
-    <img width="200" src="{{ item.item.image.url }}" alt="">
-    <form method="post" action="{% url 'remove_from_cart' item.item.id %}">
-        {% csrf_token %}
-        <button type="submit">Удалить</button>
-    </form>
-{% endfor %}
-<h2>Общая стоимость: {{ total_price }}</h2>
+    <div class="header">
+        <div class="header-img">
+            <img src="/media/media/images/top_wave.svg" alt="">
+        </div>
+        <div class="header-logo">
+            <img src="/media/media/images/youtube-logo — копия.svg" alt="">
+        </div>
+
+        <div class="cart-icon">
+            <a href=""><button class="cart-button">
+                <img src="/media/media/images/shop-icon.svg" alt="">
+            </button></a>
+        </div>
+    </div>
+    <div class="cart-main">
+        <div class="cart-grid">
+                {% for item in cart_items %}
+                    <div class="cart-item">
+                        <div class="cart-item-img">
+                            <img src="{{ item.item.image.url }}" alt="">
+                        </div>
+                        <div class="cart-item-info">
+                            {{ item.item.name }}<br>
+                            {{ item.quantity }} шт.<br>
+                            {{ item.get_cost }}
+                            <form method="post" action="{% url 'remove_from_cart' item.item.id %}">
+                                {% csrf_token %}
+                                <button type="submit">Удалить</button>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+        </div>
+        <div class="cost">
+            Общая стоимость:<br>
+            {{ total_price }}
+        </div>
+    </div>
 </body>
 </html>
