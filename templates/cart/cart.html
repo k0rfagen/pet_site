@@ -26,6 +26,7 @@
     </div>
     <div class="cart-main">
         <div class="cart-grid">
+            {% if cart_items %}
                 {% for item in cart_items %}
                     <div class="cart-item">
                         <div class="cart-item-img">
@@ -42,11 +43,15 @@
                         </div>
                     </div>
                 {% endfor %}
+                <div class="cost">
+                    Общая стоимость:<br>
+                    {{ total_price }}
+                </div>
+            {% else %}
+                <p>Ваша корзина пуста</p>
+            {% endif %}
         </div>
-        <div class="cost">
-            Общая стоимость:<br>
-            {{ total_price }}
-        </div>
+
     </div>
 </body>
 </html>
