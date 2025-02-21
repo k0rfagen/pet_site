@@ -7,6 +7,12 @@
 <body>
 {% for item in cart_items %}
     <h1>{{ item.item.name }}</h1>
+    <h2>{{ item.quantity }} шт. - {{ item.get_cost }}</h2>
+    <form method="post" action="{% url 'remove_from_cart' item.item.id %}">
+        {% csrf_token %}
+        <button type="submit">Удалить</button>
+    </form>
 {% endfor %}
+<h2>Общая стоимость: {{ total_price }}</h2>
 </body>
 </html>

@@ -36,14 +36,10 @@ class AddToCartView(View):
 class CartView(View):
     def get(self, request):
         cart_id = request.COOKIES.get(CART_COOKIE_NAME)
-
         cart_items = CartItem.objects.filter(cart_id=cart_id) if cart_id else []
-
         total_price = sum(item.get_cost() for item in cart_items)
-
         context = {'cart_items': cart_items,
                    'total_price': total_price}
-
         return render(request, 'cart/cart.html', context)
 
 class RemoveFromCartView(View):

@@ -9,6 +9,7 @@
     <title>Mainpage</title>
 </head>
 <body>
+    <h1>item id = {{ item.item.id }}</h1>
     <div class="header">
         <div class="header-img">
             <img src="/media/media/images/top_wave.svg" alt="">
@@ -36,7 +37,10 @@
                         <h2>{{ item.price }}</h2>
                     </div>
                     <div>
-                        <button>Buy</button>
+                        <form method="post" action="{% url 'add_to_cart' item.id %}">
+                            {% csrf_token  %}
+                            <button type="submit">Добавить в корзину</button>
+                        </form>
                     </div>
                 </div>
             </div>
