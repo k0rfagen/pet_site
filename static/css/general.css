@@ -24,35 +24,38 @@ body {
     scale: 120%;
 }
 
-.header-logo {
+.header-logo{
     position: absolute;
-    left: 0;
-    top: 3vw;
     width: 100vw;
-    z-index: 101;
+    margin-top: 3vw;
     cursor: pointer;
+    z-index: 102;
     display: flex;
+    align-items: center;
     justify-content: center;
+}
+
+.header-logo img{
     height: 3vw;
 }
 
 .cart-button{
     position: absolute;
     right: 20px;
-    top: 0;
     margin-top: 3vw;
     z-index: 102;
     background-color: rgba(0, 0, 0, 0);
     height: 50px;
-    border: 0;
+    border: none;
     border-radius: 25px;
     cursor: pointer;
+    transition: background-color 0.2s;
 }
 
 .cart-button img {
     height: 100%;
 }
 
-.cart-button:hover{
+.cart-button:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }

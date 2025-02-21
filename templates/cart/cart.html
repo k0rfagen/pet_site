@@ -15,7 +15,9 @@
             <img src="/media/media/images/top_wave.svg" alt="">
         </div>
         <div class="header-logo">
-            <img src="/media/media/images/youtube-logo — копия.svg" alt="">
+            <a href="/">
+                <img src="/media/media/images/youtube-logo — копия.svg" alt="">
+            </a>
         </div>
 
         <div class="cart-icon">
@@ -25,8 +27,8 @@
         </div>
     </div>
     <div class="cart-main">
-        <div class="cart-grid">
-            {% if cart_items %}
+        {% if cart_items %}
+            <div class="cart-grid">
                 {% for item in cart_items %}
                     <div class="cart-item">
                         <div class="cart-item-img">
@@ -43,15 +45,16 @@
                         </div>
                     </div>
                 {% endfor %}
-                <div class="cost">
-                    Общая стоимость:<br>
-                    {{ total_price }}
-                </div>
-            {% else %}
-                <p>Ваша корзина пуста</p>
-            {% endif %}
-        </div>
-
+            </div>
+            <div class="cost">
+                Общая стоимость:<br>
+                {{ total_price }}
+            </div>
+        {% else %}
+            <div class="cost">
+                Ваша корзина пуста
+            </div>
+        {% endif %}
     </div>
 </body>
 </html>
