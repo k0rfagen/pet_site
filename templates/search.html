@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search {{ search_body }}</title>
+</head>
+<body>
+<h1>Результаты поиска по {{ search_body }}</h1>
+{% for item in search_results %}
+    <h1>{{ item.name }}</h1>
+    <h1>{{ item.price }}</h1>
+
+{% endfor %}
+</body>
+</html>
