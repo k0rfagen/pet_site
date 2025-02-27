@@ -45,10 +45,9 @@ body {
     margin-top: 3vw;
     z-index: 102;
     background-color: rgba(0, 0, 0, 0);
-    height: 50px;
+    height: 6vw;
     border: none;
     border-radius: 25px;
-    cursor: pointer;
     transition: background-color 0.2s;
 }
 
@@ -57,5 +56,6 @@ body {
 }
 
 .cart-button:hover {
+    cursor: pointer;
     background-color: rgba(0, 0, 0, 0.1);
 }
