@@ -6,10 +6,16 @@
 </head>
 <body>
 <h1>Результаты поиска по {{ search_body }}</h1>
-{% for item in search_results %}
-    <h1>{{ item.name }}</h1>
-    <h1>{{ item.price }}</h1>
+{% if search_results %}
+    {% for item in search_results %}
+        <h1>{{ item.name }}</h1>
+        <h1>{{ item.price }}</h1>
 
-{% endfor %}
+    {% endfor %}
+{% else %}
+<div>
+    <h1>По поиску {{ search_body }} ничего не найдено, попробуйте изменить запрос</h1>
+</div>
+{% endif %}
 </body>
 </html>

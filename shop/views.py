@@ -55,7 +55,7 @@ def search(request, search_body):
     items = Items.objects.all()
     search_results = []
     for item in items:
-        if search_body in item.name:
+        if search_body.lower() in item.name.lower():
             search_results.append(item)
     context = {
         'search_results': search_results,
