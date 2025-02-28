@@ -5,6 +5,16 @@
     align-items: center;
 }
 
+.search ul {
+    display: none;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .search-text {
     width: 30vw;
     height: 3vw;
@@ -17,6 +27,11 @@
     border-top-left-radius: 1vw;
     border-bottom-left-radius: 1vw;
     box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.search-text p {
+    margin: 0;
+    padding: 0;
 }
 
 .search-button {
