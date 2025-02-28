@@ -26,12 +26,7 @@
             </button></a>
         </div>
     </div>
-    <div class="search">
-        <input class="search-text" type="text" placeholder="Search">
-        <button class="search-button">
-            <img src="/media/media/images/search.svg" alt="">
-        </button>
-    </div>
+
     <div class="main">
         <div class="item-grid">
             {% for item in items %}
@@ -54,6 +49,18 @@
                 </div>
             {% endfor %}
         </div>
+    </div>
+    <div class="search">
+        <form method="get" action="{% url 'search' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Найти</button>
+        </form>
+        <!--<input class="search-text" type="text" placeholder="Search">
+        <button class="search-button">
+            <img src="/media/media/images/search.svg" alt="">
+        </button>-->
+
     </div>
 </body>
 </html>

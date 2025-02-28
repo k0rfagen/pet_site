@@ -1,17 +1,5 @@
-from .models import Items
-from django.forms import ModelForm, forms, TextInput
+from django import forms
+from .models import *
 
-
-class ItemsForm(ModelForm):
-    class Meta:
-        model = Items
-        fields = ['name', 'price', 'quantity', 'id']
-        widgets = {
-            'name': forms.TextInput(attrs={
-                'search': 'search',
-                'class': 'form-control',
-                'name': 'name',
-                'placeholder': 'search',
-                'id': 'item',
-            }),
-        }
+class SearchForm(forms.Form):
+    search_body = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'Поиск...'}))

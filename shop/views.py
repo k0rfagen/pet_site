@@ -1,13 +1,24 @@
 import uuid
 from django.shortcuts import render, get_object_or_404, redirect
+
+from shop.forms import SearchForm
 from shop.models import Items, CartItem
 from django.views.generic.base import View
 
 CART_COOKIE_NAME = 'cart_id'
 def item_view(request):
+    if request.method == 'GET':
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            search_body = form.cleaned_data['search_body']
+            return redirect('search', search_body=search_body)
+    else:
+        form = SearchForm()
+
     items = Items.objects.all()
     context = {
-        'items': items
+        'items': items,
+        'form': form,
     }
     return render(request, 'index.html', context)
 def add_to_cart(request, item_id):
@@ -51,16 +62,17 @@ def remove_from_cart(request, item_id):
             pass
     response = redirect('cart_view')
     return response
-def search(request, search_body):
-    items = Items.objects.all()
+def search(request):
+    search_body = request.GET.get('search_body', '')
+    form = SearchForm()
     search_results = []
-    for item in items:
-        if search_body.lower() in item.name.lower():
-            search_results.append(item)
+    if search_body:
+        items = Items.objects.all()
+        search_results = [item for item in items if search_body.lower() in item.name.lower()]
+
     context = {
         'search_results': search_results,
-        'search_body': search_body
+        'search_body': search_body if 'search_body' in request.GET else '',
+        'form': form,
     }
     return render(request, 'search.html', context)
-
-
