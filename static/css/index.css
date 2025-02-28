@@ -51,8 +51,26 @@ form {
 search-text::placeholder {
     font-family: Atkinson Hyperlegible Mono, Arial;
     font-size: 16px;
-  }
+}
 
+.search-result {
+    display: flex;
+    justify-content: center;
+}
+
+.search-result-title {
+    margin-top: 19vw;
+    background-color: white;
+    padding: 1vw 2vw;
+    border-radius: 3vw;
+    box-shadow: inset 3px 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+.search-result-title h1 {
+    font-family: Atkinson Hyperlegible Mono, Arial;
+    font-size: 2vw;
+    margin: 0;
+}
 
 .main {
     display: flex;
