@@ -76,3 +76,10 @@ def search(request):
         'form': form,
     }
     return render(request, 'search.html', context)
+def item_card(request, item_id):
+    item = get_object_or_404(Items, pk=item_id)
+    context = {
+        'item': item,
+        'item_id': item_id,
+    }
+    return render(request, 'item.html', context)

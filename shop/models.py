@@ -6,8 +6,9 @@ class Items(models.Model):
     name = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     image = models.ImageField(upload_to='media/%Y%m%d', blank=True)
+    description = models.TextField(default='')
     def __str__(self):
-        return f'{self.name}, price: {self.price}'
+        return f'{self.name}, price: {self.price}, description: {self.description}'
 
 class CartItem(models.Model):
     item = models.ForeignKey(Items, on_delete=models.CASCADE)
