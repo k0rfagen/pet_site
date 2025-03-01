@@ -16,7 +16,7 @@ form {
 }
 
 .search-text {
-    width: 30vw;
+    max-width: 200px;
     height: 3vw;
     padding-left: 1vw;
     font-size: 1.3vw;
@@ -72,82 +72,44 @@ search-text::placeholder {
     margin: 0;
 }
 
-.main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 3vw;
-}
-
 .item-grid {
-    display: grid;
-    column-gap: 1.5vw;
-    row-gap: 1.5vw;
-}
-
-@media (min-width: 1401px) {
-    .item-grid {
-        width: 97vw;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-
-    .item {
-        height: 30vw;
-    }
-}
-
-@media (min-width: 681px) and (max-width: 1400px){
-    .item-grid {
-        width: 80vw;
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    .item {
-        height: 35vw;
-    }
-}
-
-@media (max-width: 680px) and (min-width: 351px) {
-    .item-grid {
-        width: 60vw;
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .item {
-        height: 40vw;
-    }
-}
-
-@media (max-width: 350px) {
-    .item-grid {
-        width: 35vw;
-        grid-template-columns: 1fr;
-    }
-
-    .item {
-        height: 45vw;
-    }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 3vw;
+    margin-left: 50px;
+    margin-right: 50px;
+    row-gap: 2vw;
+    column-gap: 2vw;
+    width: 100vw - 200px;
 }
 
 .item {
     display: flex;
     flex-direction: column;
     background-color: white;
-    border-radius: 3vw;
-    padding: 1.5vw;
+    border-radius: 20px;
+    padding: 13px;
+    max-width: 100px;
+    min-height: 120px;
+    row-gap: 10px;
 }
 
 .item-img {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 1;
     margin: 0;
+    flex: 1;
+}
+
+.item-img a{
+    width: 100%;
 }
 
 .item-img img {
     border-radius: 10%;
-    width: 20vw;
+    width: 100%;
 }
 
 .item-info {
@@ -159,14 +121,14 @@ search-text::placeholder {
 .item-info button {
     background-color: rgb(0, 0, 0);
     color: white;
-    padding: 1.7vw 1.5vw;
+    padding: 6px 5px;
     border: none;
-    border-radius: 30%;
+    border-radius: 7px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     opacity: 1;
     transition: opacity 0.2s;
     font-family: Atkinson Hyperlegible Mono, Arial;
-    font-size: 1vw;
+    font-size: 7px;
     cursor: pointer;
 }
 
@@ -181,7 +143,7 @@ search-text::placeholder {
 .item-info h1,
 .item-info h2 {
     margin: 0;
-    font-size: 1.5vw;
+    font-size: 9px;
     font-weight: 500;
     font-family: Atkinson Hyperlegible Mono, Arial;
 }
