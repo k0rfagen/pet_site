@@ -140,21 +140,21 @@ search-text::placeholder {
     .item {
         min-width: 120px;
         max-width: 120px;
-        min-height: 220px;
-        max-height: 220px;
+        min-height: 230px;
+        max-height: 230px;
         padding: 13px;
         border-radius: 25px;
     }
 
     .item-info h1,
     .item-info h2 {
-        font-size: 0.7rem;
+        font-size: 0.56rem;
     }
 
     .item-info button {
-        padding: 0.7rem 0.5rem;
-        font-size: 0.7rem;
-        border-radius: 0.9rem;
+        padding: 0.65rem 0.45rem;
+        font-size: 0.65rem;
+        border-radius: 0.85rem;
     }
 }
 
