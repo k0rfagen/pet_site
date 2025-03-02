@@ -92,7 +92,29 @@ search-text::placeholder {
     background-color: white;
 }
 
-@media (min-width: 1451px) {
+@media (min-width: 2301px) {
+    .item {
+        min-width: 400px;
+        max-width: 400px;
+        min-height: 730px;
+        max-height: 730px;
+        padding: 25px;
+        border-radius: 40px;
+    }
+
+    .item-info h1,
+    .item-info h2 {
+        font-size: 2rem;
+    }
+
+    .item-info button {
+        padding: 1.7rem 1.5rem;
+        font-size: 1.7rem;
+        border-radius: 1.7rem;
+    }
+}
+
+@media (min-width: 1451px) and (max-width: 2300px){
     .item {
         min-width: 300px;
         max-width: 300px;
