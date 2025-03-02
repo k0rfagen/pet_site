@@ -38,7 +38,7 @@ form {
 
 .search-button {
     width: 4vw;
-    height: 3vw + 2px;
+    height: calc(3vw + 2px);
     background-color: rgb(240, 240, 240);
     border: 1px solid rgb(200, 200, 200);
     margin-left: -1px;
@@ -99,7 +99,7 @@ search-text::placeholder {
         min-height: 550px;
         max-height: 550px;
         padding: 20px;
-        border-radius: 30px;
+        border-radius: 35px;
     }
 
     .item-info h1,
@@ -165,6 +165,7 @@ search-text::placeholder {
         min-height: 155px;
         max-height: 155px;
         padding: 11px;
+        border-radius: 20px;
     }
 
     .item-info h1,
