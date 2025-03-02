@@ -8,11 +8,93 @@
     display: flex;
     flex-direction: column;
     background-color: white;
-    border-radius: 20px;
-    padding: 13px;
-    max-width: 100px;
-    min-height: 120px;
-    row-gap: 10px;
+}
+
+@media (min-width: 1451px) {
+    .item {
+        min-width: 300px;
+        max-width: 300px;
+        min-height: 550px;
+        max-height: 550px;
+        padding: 20px;
+        border-radius: 30px;
+    }
+
+    .item-info h1,
+    .item-info h2 {
+        font-size: 1.7rem;
+    }
+
+    .item-info button {
+        padding: 1.2rem 1rem;
+        font-size: 1.5rem;
+        border-radius: 1.5rem;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1450px) {
+    .item {
+        min-width: 200px;
+        max-width: 200px;
+        min-height: 350px;
+        max-height: 350px;
+        padding: 15px;
+        border-radius: 25px;
+    }
+
+    .item-info h1,
+    .item-info h2 {
+        font-size: 1.1rem;
+    }
+
+    .item-info button {
+        padding: 0.9rem 0.7rem;
+        font-size: 1rem;
+        border-radius: 1rem;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .item {
+        min-width: 120px;
+        max-width: 120px;
+        min-height: 220px;
+        max-height: 220px;
+        padding: 13px;
+        border-radius: 25px;
+    }
+
+    .item-info h1,
+    .item-info h2 {
+        font-size: 0.7rem;
+    }
+
+    .item-info button {
+        padding: 0.7rem 0.5rem;
+        font-size: 0.7rem;
+        border-radius: 0.9rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .item {
+        min-width: 85px;
+        max-width: 85px;
+        min-height: 155px;
+        max-height: 155px;
+        padding: 11px;
+    }
+
+    .item-info h1,
+    .item-info h2 {
+        font-size: 0.45rem;
+    }
+
+    .item-info button {
+        padding: 0.5rem 0.4rem;
+        font-size: 0.5rem;
+        border-radius: 0.6rem;
+    }
 }
 
 .item-img {
@@ -41,14 +123,11 @@
 .item-info button {
     background-color: rgb(0, 0, 0);
     color: white;
-    padding: 6px 5px;
     border: none;
-    border-radius: 7px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     opacity: 1;
     transition: opacity 0.2s;
     font-family: Atkinson Hyperlegible Mono, Arial;
-    font-size: 7px;
     cursor: pointer;
 }
 
@@ -63,7 +142,6 @@
 .item-info h1,
 .item-info h2 {
     margin: 0;
-    font-size: 9px;
     font-weight: 500;
     font-family: Atkinson Hyperlegible Mono, Arial;
 }
