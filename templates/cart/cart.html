@@ -28,10 +28,6 @@
         </div>
     </div>
     <div class="cart-main">
-        <form action="{% url 'cart_view' %}" method="post" name="delete_all">
-            {% csrf_token %}
-            <input type="submit" name="delete_all" value="Очистить корзину">
-        </form>
         {% if cart_items %}
             <div class="cart-grid">
                 {% for item in cart_items %}
@@ -55,9 +51,19 @@
                 Общая стоимость:<br>
                 {{ total_price }}
             </div>
+            <form action="{% url 'cart_view' %}" method="post" name="delete_all">
+                {% csrf_token %}
+                <input type="submit" name="delete_all" value="Очистить корзину">
+            </form>
         {% else %}
-            <div class="cost">
-                Ваша корзина пуста
+            <div class="empty-cart">
+                <div class="empty-cart-info">
+                    <h1>В корзине пока пусто</h1>
+                    <p>Загляните на главную,чтобы выбрать товары</p>
+                    <a href="/">
+                        Перейти на главную
+                    </a>
+                </div>
             </div>
         {% endif %}
     </div>

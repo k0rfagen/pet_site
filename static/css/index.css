@@ -182,7 +182,7 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (min-width: 351px) and (max-width: 600px) {
     .item {
         min-width: 85px;
         max-width: 85px;
@@ -201,6 +201,28 @@
         padding: 0.5rem 0.4rem;
         font-size: 0.5rem;
         border-radius: 0.6rem;
+    }
+}
+
+@media (max-width: 350px) {
+    .item {
+        min-width: 55px;
+        max-width: 55px;
+        min-height: 100px;
+        max-height: 100px;
+        padding: 9px;
+        border-radius: 15px;
+    }
+
+    .item-info h1,
+    .item-info h2 {
+        font-size: 0.325rem;
+    }
+
+    .item-info button {
+        padding: 0.325rem 0.225rem;
+        font-size: 0.325rem;
+        border-radius: 0.4rem;
     }
 }
 
