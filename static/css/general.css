@@ -44,7 +44,8 @@ body {
     margin-top: 2vw;
     z-index: 102;
     background-color: rgba(0, 0, 0, 0);
-    height: 6vw;
+    height: 5vw;
+    padding: 0;
     border: none;
     border-radius: 25px;
     transition: background-color 0.2s;
