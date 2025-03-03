@@ -45,8 +45,9 @@ def cart_view(request):
     cart_id = request.COOKIES.get(CART_COOKIE_NAME)
     cart_items = CartItem.objects.filter(cart_id=cart_id) if cart_id else []
     total_price = sum(item.get_cost() for item in cart_items)
-    if 'delete_all' in request.POST:
-        CartItem.objects.filter(cart_id=cart_id).delete()
+    if total_price and request.method == 'POST':
+        if 'delete_all' in request.POST:
+            CartItem.objects.filter(cart_id=cart_id).delete()
     context = {'cart_items': cart_items,
                'total_price': total_price}
     return render(request, 'cart/cart.html', context)
