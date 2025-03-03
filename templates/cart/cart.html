@@ -27,6 +27,10 @@
         </div>
     </div>
     <div class="cart-main">
+        <form action="{% url 'cart_view' %}" method="post" name="delete_all">
+            {% csrf_token %}
+            <input type="submit" name="delete_all" value="Очистить корзину">
+        </form>
         {% if cart_items %}
             <div class="cart-grid">
                 {% for item in cart_items %}
