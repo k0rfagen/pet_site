@@ -8,7 +8,7 @@
 .search ul {
     display: none;
 }
-
+/* аопопоппввап */
 form {
     display: flex;
     justify-content: center;
@@ -16,8 +16,10 @@ form {
 }
 
 .search-text {
-    max-width: 200px;
+    min-width: 30vw;
     height: 3vw;
+    padding-top: 0;
+    padding-bottom: 0;
     padding-left: 1vw;
     font-size: 1.3vw;
     font-family: Atkinson Hyperlegible Mono, Arial;
@@ -36,7 +38,7 @@ form {
 
 .search-button {
     width: 4vw;
-    height: 3.3vw;
+    height: calc(3vw + 2px);
     background-color: rgb(240, 240, 240);
     border: 1px solid rgb(200, 200, 200);
     margin-left: -1px;
@@ -77,22 +79,127 @@ search-text::placeholder {
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 3vw;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 10vw;
+    margin-right: 10vw;
     row-gap: 2vw;
     column-gap: 2vw;
-    width: 100vw - 200px;
+    width: 80vw;
 }
 
 .item {
     display: flex;
     flex-direction: column;
     background-color: white;
-    border-radius: 20px;
-    padding: 13px;
-    max-width: 100px;
-    min-height: 120px;
-    row-gap: 10px;
+}
+
+@media (min-width: 2301px) {
+    .item {
+        min-width: 400px;
+        max-width: 400px;
+        min-height: 730px;
+        max-height: 730px;
+        padding: 25px;
+        border-radius: 40px;
+    }
+
+    .item-info h1,
+    .item-info h2 {
+        font-size: 2rem;
+    }
+
+    .item-info button {
+        padding: 1.7rem 1.5rem;
+        font-size: 1.7rem;
+        border-radius: 1.7rem;
+    }
+}
+
+@media (min-width: 1451px) and (max-width: 2300px){
+    .item {
+        min-width: 300px;
+        max-width: 300px;
+        min-height: 550px;
+        max-height: 550px;
+        padding: 20px;
+        border-radius: 35px;
+    }
+
+    .item-info h1,
+    .item-info h2 {
+        font-size: 1.7rem;
+    }
+
+    .item-info button {
+        padding: 1.2rem 1rem;
+        font-size: 1.5rem;
+        border-radius: 1.5rem;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1450px) {
+    .item {
+        min-width: 200px;
+        max-width: 200px;
+        min-height: 350px;
+        max-height: 350px;
+        padding: 15px;
+        border-radius: 25px;
+    }
+
+    .item-info h1,
+    .item-info h2 {
+        font-size: 1.1rem;
+    }
+
+    .item-info button {
+        padding: 0.9rem 0.7rem;
+        font-size: 1rem;
+        border-radius: 1rem;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .item {
+        min-width: 120px;
+        max-width: 120px;
+        min-height: 230px;
+        max-height: 230px;
+        padding: 13px;
+        border-radius: 25px;
+    }
+
+    .item-info h1,
+    .item-info h2 {
+        font-size: 0.56rem;
+    }
+
+    .item-info button {
+        padding: 0.65rem 0.45rem;
+        font-size: 0.65rem;
+        border-radius: 0.85rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .item {
+        min-width: 85px;
+        max-width: 85px;
+        min-height: 155px;
+        max-height: 155px;
+        padding: 11px;
+        border-radius: 20px;
+    }
+
+    .item-info h1,
+    .item-info h2 {
+        font-size: 0.45rem;
+    }
+
+    .item-info button {
+        padding: 0.5rem 0.4rem;
+        font-size: 0.5rem;
+        border-radius: 0.6rem;
+    }
 }
 
 .item-img {
@@ -121,14 +228,11 @@ search-text::placeholder {
 .item-info button {
     background-color: rgb(0, 0, 0);
     color: white;
-    padding: 6px 5px;
     border: none;
-    border-radius: 7px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     opacity: 1;
     transition: opacity 0.2s;
     font-family: Atkinson Hyperlegible Mono, Arial;
-    font-size: 7px;
     cursor: pointer;
 }
 
@@ -143,7 +247,6 @@ search-text::placeholder {
 .item-info h1,
 .item-info h2 {
     margin: 0;
-    font-size: 9px;
     font-weight: 500;
     font-family: Atkinson Hyperlegible Mono, Arial;
 }
