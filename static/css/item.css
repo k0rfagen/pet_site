@@ -127,7 +127,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     opacity: 1;
     transition: opacity 0.2s;
-    font-family: Atkinson Hyperlegible Mono, Arial;
+    font-family: "Unbounded", "Arial";
     cursor: pointer;
 }
 
@@ -143,5 +143,5 @@
 .item-info h2 {
     margin: 0;
     font-weight: 500;
-    font-family: Atkinson Hyperlegible Mono, Arial;
+    font-family: "Unbounded", "Arial";
 }

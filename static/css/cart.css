@@ -5,7 +5,7 @@
     margin-left: 3vw;
     margin-top: 20vw;
     width: 94vw;
-    font-family: Atkinson Hyperlegible Mono, Arial;
+    font-family: "Unbounded", "Arial";
 }
 
 .cart-grid {
@@ -25,7 +25,7 @@
 }
 
 .cart-item button {
-    font-family: Atkinson Hyperlegible Mono, Arial;
+    font-family: "Unbounded", "Arial";
 }
 
 .cart-item-img {
@@ -36,7 +36,7 @@
 .cart-item-info {
     margin-top: 10px;
     font-size: 30px;
-    font-family: Atkinson Hyperlegible Mono, Arial;
+    font-family: "Unbounded", "Arial";
     font-weight: 500;
     flex: 1;
     display: flex;
@@ -54,7 +54,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     opacity: 1;
     transition: opacity 0.2s;
-    font-family: Atkinson Hyperlegible Mono, Arial;
+    font-family: "Unbounded", "Arial";
     font-size: 13px;
     cursor: pointer;
 }
@@ -147,6 +147,6 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     opacity: 1;
     transition: opacity 0.2s;
-    font-family: Atkinson Hyperlegible Mono, Arial;
+    font-family: "Unbounded", "Arial";
     cursor: pointer;
 }
