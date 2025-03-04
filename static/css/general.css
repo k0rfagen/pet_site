@@ -48,7 +48,7 @@ body {
     padding: 0;
     border: none;
     border-radius: 25px;
-    transition: background-color 0.2s;
+    transition: all 0.2s;
     cursor: pointer;
 }
 
@@ -58,4 +58,8 @@ body {
 
 .cart-button:hover {
     background-color: rgba(0, 0, 0, 0.1);
+}
+
+.cart-button:active {
+    transform: scale(90%);
 }
