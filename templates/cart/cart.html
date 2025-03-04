@@ -36,9 +36,11 @@
                             <img src="{{ item.item.image.url }}" alt="">
                         </div>
                         <div class="cart-item-info">
-                            {{ item.item.name }}<br>
-                            {{ item.quantity }} шт.<br>
-                            {{ item.get_cost }}
+                            <div class="cart-item-text">
+                                <div>{{ item.item.name }}</div>
+                                <div>{{ item.quantity }} шт.</div>
+                                <div>{{ item.get_cost }} ₽</div>
+                            </div>
                             <form method="post" action="{% url 'remove_from_cart' item.item.id %}">
                                 {% csrf_token %}
                                 <button type="submit">Удалить</button>
@@ -47,14 +49,16 @@
                     </div>
                 {% endfor %}
             </div>
-            <div class="cost">
-                Общая стоимость:<br>
-                {{ total_price }}
+            <div class="cart-result">
+                <div class="cost">
+                    <div>Итого</div>
+                    <div>{{ total_price }} ₽</div>
+                </div>
+                <form action="{% url 'cart_view' %}" method="post" name="delete_all">
+                    {% csrf_token %}
+                    <input type="submit" name="delete_all" value="Очистить корзину">
+                </form>
             </div>
-            <form action="{% url 'cart_view' %}" method="post" name="delete_all">
-                {% csrf_token %}
-                <input type="submit" name="delete_all" value="Очистить корзину">
-            </form>
         {% else %}
             <div class="empty-cart">
                 <div class="empty-cart-info">

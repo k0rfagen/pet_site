@@ -31,14 +31,12 @@
     <div class="main">
         <div class="item">
             <div class="item-img">
-                <a href="{% url 'item_card' item.id %}">
-                    <img src="{{ item.image.url }}" alt="">
-                </a>
+                <img src="{{ item.image.url }}" alt="">
             </div>
             <div class="item-info">
                 <div>
                     <h1>{{ item.name }}</h1>
-                    <h2>{{ item.price }}</h2>
+                    <h2>{{ item.price }} ₽</h2>
                 </div>
                 <div>
                     <form method="post" action="{% url 'add_to_cart' item.id %}">
@@ -48,7 +46,12 @@
                 </div>
             </div>
         </div>
-        {{ item.description }}
+        <div class="item-desc">
+            <h1>Описание</h1>
+            <p>
+                {{ item.description }} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad alias aliquid consectetur dicta dolorum ducimus earum expedita facere harum id ipsa, itaque labore minus molestias mollitia necessitatibus nisi nostrum numquam porro possimus sed sunt temporibus tenetur voluptates? Dicta eius eos expedita fugiat magni perferendis perspiciatis reprehenderit tempore! Dicta, maxime!
+            </p>
+        </div>
     </div>
 </body>
 </html>
