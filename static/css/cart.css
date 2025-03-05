@@ -42,7 +42,7 @@
     align-items: center;
 }
 
-.cart-item-info button {
+.cart-button-delete {
     margin-top: 2vw;
     background-color: rgb(0, 0, 0);
     color: white;
@@ -51,18 +51,17 @@
     border-radius: 1.5vw;
     box-shadow: 0 0 2vw rgba(0, 0, 0, 0.4),
         inset -0.5vw -0.5vw 0.5vw rgba(200, 200, 200, 0.3);
-    opacity: 1;
-    transition: opacity 0.2s, transform 0.2s;
+    transition: background-color 0.2s, transform 0.2s;
     font-family: "Unbounded", "Arial";
     font-size: clamp(0.4rem, 1.2vw, 2rem);
     cursor: pointer;
 }
 
-.cart-item-info button:hover {
-    opacity: 0.8;
+.cart-button-delete:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
-.cart-item-info button:active {
+.cart-button-delete:active {
     transform: scale(90%);
 }
 
@@ -74,6 +73,34 @@
     font-size: clamp(0.5rem, 1.5vw, 2.5rem);
     font-family: "Unbounded", "Arial";
     font-weight: 500;
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5vw;
+}
+
+.cart-item-quantity button {
+    background-color: black;
+    color: white;
+    padding: 0.3vw 0.8vw;
+    border: none;
+    border-radius: 5vw;
+    transition: background-color 0.2s, transform 0.2s;
+    font-family: "Unbounded", "Arial";
+    font-size: clamp(0.4rem, 1vw, 1.8rem);
+    cursor: pointer;
+    box-shadow: 0.1vw 0.1vw 0.5vw rgba(0, 0, 0, 0.3),
+        inset -0.5vw -0.5vw 0.5vw rgba(200, 200, 200, 0.2);
+}
+
+.cart-item-quantity button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.cart-item-quantity button:active {
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .cart-result {
@@ -98,7 +125,7 @@
     padding: 1.5vw 1vw;
     border: none;
     border-radius: 5vw;
-    transition: opacity 0.2s, transform 0.2s;
+    transition: background-color 0.2s, transform 0.2s;
     font-family: "Unbounded", "Arial";
     font-size: clamp(0.4rem, 1vw, 1.8rem);
     cursor: pointer;
@@ -107,7 +134,7 @@
 }
 
 .cart-result form input:hover {
-    opacity: 0.8;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .cart-result form input:active {
@@ -172,11 +199,11 @@
     font-size: clamp(0.4rem, 1.3vw, 2.2rem);
     box-shadow: 0 0 2vw rgba(0, 0, 0, 0.4),
                 inset -0.3vw -0.3vw 0.5vw rgba(200, 200, 200, 0.4);
-    transition: opacity 0.2s, transform 0.2s;
+    transition: background-color 0.2s, transform 0.2s;
 }
 
 .empty-cart-info a:hover {
-    opacity: 0.8;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .empty-cart-info a:active {
@@ -192,8 +219,6 @@
     border: none;
     border-radius: 3vw;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    opacity: 1;
-    transition: opacity 0.2s;
     font-family: "Unbounded", "Arial";
     cursor: pointer;
 }

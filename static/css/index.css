@@ -14,6 +14,7 @@
     justify-content: center;
     align-items: center;
     height: 3vw;
+    text-decoration: none;
 }
 
 .search form p {
@@ -256,18 +257,17 @@
     color: white;
     border: none;
     box-shadow: 0 0 1vw rgba(0, 0, 0, 0.5);
-    opacity: 1;
-    transition: opacity 0.2s;
+    transition: background-color 0.2s;
     font-family: "Unbounded", "Arial";
     cursor: pointer;
 }
 
 .item-info button:hover {
-    opacity: 0.7;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .item-info button:active {
-    opacity: 0.5;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .item-info h1,
@@ -279,4 +279,63 @@
 
 .item-info h2 {
     color: rgb(100, 100, 100);
+}
+
+.empty-cart {
+    margin-top: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    width: 90vw;
+    border-radius: 1vw;
+    background-color: white;
+    height: 15vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    box-shadow: 0 0 5vw rgba(200, 200, 200, 0.4),
+        inset -0.5vw -0.5vw 1vw rgba(0, 0, 0, 0.4);
+    font-family: "Unbounded", "Arial";
+}
+
+.empty-cart-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    row-gap: 1.5vw;
+}
+
+.empty-cart-info h1 {
+    margin: 0;
+    font-size: clamp(0.8rem, 2.1vw, 3.5rem);
+}
+
+.empty-cart-info p {
+    margin: 0;
+    font-size: clamp(0.4rem, 1.1vw, 2.2rem);
+    color: gray;
+}
+
+.empty-cart-info a {
+    text-decoration: none;
+    background-color: black;
+    padding: 1vw 2vw;
+    border-radius: 1vw;
+    margin-top: 0.5vw;
+    color: white;
+    font-size: clamp(0.4rem, 1.3vw, 2.2rem);
+    box-shadow: 0 0 2vw rgba(0, 0, 0, 0.4),
+                inset -0.3vw -0.3vw 0.5vw rgba(200, 200, 200, 0.4);
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.empty-cart-info a:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.empty-cart-info a:active {
+    transform: scale(90%);
 }

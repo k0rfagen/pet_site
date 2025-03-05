@@ -27,15 +27,19 @@ body {
 .header-logo{
     position: absolute;
     width: 100vw;
-    margin-top: 2.5vw;
+    margin-top: 2.7vw;
     z-index: 102;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 3vw;
 }
 
-.header-logo img{
-    height: 3vw;
+.header-logo a{
+    font-family: "Rubik Glitch", "Arial";
+    font-size: clamp(0.4rem, 3vw, 2.2rem);
+    text-decoration: none;
+    color: black;
 }
 
 .cart-button{
@@ -62,4 +66,45 @@ body {
 
 .cart-button:active {
     transform: scale(90%);
+}
+
+.footer {
+    margin-top: 5vw;
+    background-color: white;
+    width: 100vw;
+    height: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-content {
+    width: 80vw;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-title {
+    font-size: clamp(0.4rem, 1.6vw, 2.2rem);
+    font-family: "Rubik Glitch", "Arial";
+}
+
+.footer-a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 35vw;
+}
+
+.footer-a a{
+    text-decoration: none;
+    color: black;
+    font-family: "Unbounded", "Arial";
+    font-size: clamp(0.4rem, 1vw, 2.2rem);
+}
+
+.footer-a a:hover {
+    color: rgba(0, 0, 0, 0.7);
 }

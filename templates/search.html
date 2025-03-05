@@ -18,7 +18,7 @@
         </div>
         <div class="header-logo">
             <a href="/">
-                <img src="/media/media/images/youtube-logo — копия.svg" alt="">
+                © BULL'S SHOP
             </a>
         </div>
 
@@ -29,10 +29,14 @@
         </div>
     </div>
 
-    <div class="search-result">
-        <div class="search-result-title">
-            <h1>Результаты поиска по "{{ search_body }}"</h1>
-        </div>
+    <div class="search">
+        <form method="get" action="{% url 'search' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="search-button" type="submit">
+                <img src="/media/media/images/search.svg" alt="">
+            </button>
+        </form>
     </div>
 
     <div class="main">
@@ -59,30 +63,27 @@
                 {% endfor %}
             </div>
         {% else %}
-            <p>Товары не найдены.</p>
+            <div class="empty-cart">
+                <div class="empty-cart-info">
+                    <h1>Ничего не найдено по запросу</h1>
+                    <p>Попробуйте поискать по-другому или сократить запрос</p>
+                    <a href="/">
+                        Перейти на главную
+                    </a>
+                </div>
+            </div>
         {% endif %}
     </div>
-    <!--
-    <div class="main">
-        <div class="main-search">
-            <div class="search-result-title">
-                <h1>Результаты поиска по "{{ search_body }}"</h1>
-            </div>
-            {% if search_results %}
-                <div class="search-result">
-                    {% for item in search_results %}
-                        <div class="search-item">
-                            <div>{{ item.name }}</div>
-                            <div class="item-price">{{ item.price }} <button>buy</button></div>
-                        </div>
-                    {% endfor %}
-                </div>
-            {% else %}
-                <p>Товары не найдены.</p>
-            {% endif %}
+
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-title">© BULL'S SHOP 2025</div>
+            <div class="footer-a">
+                <a href="">Контакты</a>
+                <a href="">Copyright</a>
+                <a href="">Политика конфиденциальности</a>
             </div>
         </div>
     </div>
-    -->
 </body>
 </html>
