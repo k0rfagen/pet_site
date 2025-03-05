@@ -36,7 +36,7 @@ def add_to_cart(request, item_id):
     except CartItem.DoesNotExist:
         CartItem.objects.create(cart_id=cart_id, item=item, quantity=1)
 
-    response = redirect('cart_view')
+    response = redirect('mainpage')
 
     response.set_cookie(CART_COOKIE_NAME, cart_id, max_age=3600 * 24 * 30)
     return response
