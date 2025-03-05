@@ -114,3 +114,5 @@ def plus(request, item_id):
             cart_item.save()
             return redirect('cart_view')
     return redirect('cart_view')
+def contacts(request):
+    return render(request, 'contacts.html')
