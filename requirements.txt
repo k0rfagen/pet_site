@@ -1,0 +1,12 @@
+requirement packages and libraries
+
+python v3.13
+
+pip v25.0.1
+
+Django v5.1.6
+
+pillow v11.1.0
+
+requests v2.32.3
+
