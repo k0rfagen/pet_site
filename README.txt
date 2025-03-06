@@ -10,7 +10,7 @@ python manage.py runserver
 MacOS/Linux:
 python3 manage.py runserver
 
-If u see error that that porn is already used:
+If u see error that that port is already used:
 'Error: That port is already in use.'
 add localhost:<any other port that u dont use> to command
 
