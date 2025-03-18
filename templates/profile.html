@@ -2,13 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>профиль</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/static/css/general.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    <title>Профиль</title>
 </head>
 <body>
-    <h1>{{ user.username }}</h1>
-    <form method="post" action="{% url 'logout' %}?next={% url 'profile' %}">
-        {% csrf_token %}
-        <button class="btn btn-primary" type="submit">Logout</button>
-    </form>
+    <header>
+        <div class="header-img">
+            <img src="/media/media/images/top_wave.svg" alt="">
+        </div>
+        <div class="header-logo">
+            <a href="/">
+                © BULL'S SHOP
+            </a>
+        </div>
+
+        <div class="cart-icon">
+            <a href="/cart"><button class="cart-button">
+                <img src="/media/media/images/shop-icon.svg" alt="">
+            </button></a>
+        </div>
+    </header>
+
+    <main>
+      <h1>{{ user.username }}</h1>
+      <form method="post" action="{% url 'logout' %}?next={% url 'profile' %}">
+          {% csrf_token %}
+          <button class="btn btn-primary" type="submit">Logout</button>
+      </form>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-title">© BULL'S SHOP 2025</div>
+            <div class="footer-a">
+                <a>Контакты</a>
+                <a href="">Copyright</a>
+                <a href="">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

@@ -14,7 +14,7 @@
 <body>
     <script src="/static/scripts/script.js"></script>
 
-    <div class="header">
+    <header>
         <div class="header-img">
             <img src="/media/media/images/top_wave.svg" alt="">
         </div>
@@ -29,7 +29,7 @@
                 <img src="/media/media/images/shop-icon.svg" alt="">
             </button></a>
         </div>
-    </div>
+    </header>
 
     <div class="search">
         <form method="get" action="{% url 'search' %}">
@@ -42,7 +42,7 @@
         <p class="search-tips" style="background-color: white; font-size: 2rem;"></p>
     </div>
 
-    <div class="main">
+    <main>
         {% if search_results %}
             <div class="item-grid">
                 {% for item in search_results %}
@@ -76,9 +76,9 @@
                 </div>
             </div>
         {% endif %}
-    </div>
+    </main>
 
-    <div class="footer">
+    <footer>
         <div class="footer-content">
             <div class="footer-title">© BULL'S SHOP 2025</div>
             <div class="footer-a">
@@ -87,6 +87,6 @@
                 <a href="">Политика конфиденциальности</a>
             </div>
         </div>
-    </div>
+    </footer>
 </body>
 </html>
