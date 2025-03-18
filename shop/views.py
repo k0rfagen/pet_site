@@ -6,12 +6,12 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import FormView, CreateView
+from numba.pycc import export
 
 from shop.forms import SearchForm, RegistrationForm
 from shop.models import Items, CartItem
 
 CART_COOKIE_NAME = "cart_id"
-
 
 def item_view(request):
     if request.method == "GET":
@@ -26,6 +26,8 @@ def item_view(request):
     context = {
         "items": items,
         "form": form,
+        'sorted_items1': sorted(items, key=lambda i: i.price, reverse=True),
+        'sorted_items2': sorted(items, key=lambda i: i.price, reverse=False),
     }
     return render(request, "index.html", context)
 
