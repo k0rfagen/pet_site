@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>профиль</title>
+</head>
+<body>
+    <h1>{{ user.username }}</h1>
+    <form method="post" action="{% url 'logout' %}?next={% url 'profile' %}">
+        {% csrf_token %}
+        <button class="btn btn-primary" type="submit">Logout</button>
+    </form>
+</body>
+</html>
