@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from shop import views
-from shop.views import item_view
+from shop.views import item_view, RegisterView
 
 urlpatterns = [
     path("", item_view, name="mainpage"),
@@ -15,4 +15,5 @@ urlpatterns = [
     path("cart/plus/<int:item_id>", views.plus, name="plus_one"),
     path("contacts/", views.contacts, name="contacts"),
     path("profile/", views.profile, name="profile"),
+    path('accounts/register', RegisterView.as_view(), name="register"),
 ]

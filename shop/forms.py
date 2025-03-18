@@ -1,4 +1,6 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm, BaseUserCreationForm
+
 from .models import *
 
 
@@ -13,3 +15,8 @@ class SearchForm(forms.Form):
             }
         ),
     )
+
+
+class RegistrationForm(BaseUserCreationForm):
+    class Meta(BaseUserCreationForm.Meta):
+        model = User

@@ -1,9 +1,13 @@
 import uuid
 
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse_lazy
+from django.views import View
+from django.views.generic import FormView, CreateView
 
-from shop.forms import SearchForm
+from shop.forms import SearchForm, RegistrationForm
 from shop.models import Items, CartItem
 
 CART_COOKIE_NAME = "cart_id"
@@ -139,3 +143,11 @@ def contacts(request):
 @login_required
 def profile(request):
     return render(request, "profile.html")
+
+class RegisterView(FormView):
+    form_class = RegistrationForm
+    template_name = "registration/register.html"
+    success_url = reverse_lazy('profile')
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
