@@ -11,7 +11,7 @@
     <title>Корзина</title>
 </head>
 <body>
-    <div class="header">
+    <header>
         <div class="header-img">
             <img src="/media/media/images/top_wave.svg" alt="">
         </div>
@@ -26,8 +26,9 @@
                 <img src="/media/media/images/shop-icon.svg" alt="">
             </button></a>
         </div>
-    </div>
-    <div class="cart-main">
+    </header>
+
+    <main>
         {% if cart_items %}
             <div class="cart-grid">
                 {% for item in cart_items %}
@@ -80,9 +81,9 @@
                 </div>
             </div>
         {% endif %}
-    </div>
+    </main>
 
-    <div class="footer">
+    <footer>
         <div class="footer-content">
             <div class="footer-title">© BULL'S SHOP 2025</div>
             <div class="footer-a">
@@ -91,6 +92,6 @@
                 <a href="">Политика конфиденциальности</a>
             </div>
         </div>
-    </div>
+    </footer>
 </body>
 </html>

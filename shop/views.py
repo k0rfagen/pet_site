@@ -144,10 +144,12 @@ def contacts(request):
 def profile(request):
     return render(request, "profile.html")
 
+
 class RegisterView(FormView):
     form_class = RegistrationForm
     template_name = "registration/register.html"
-    success_url = reverse_lazy('profile')
+    success_url = reverse_lazy("profile")
+
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
