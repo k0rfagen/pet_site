@@ -3,35 +3,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/static/css/general.css">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
     <title>Login</title>
 </head>
 <body>
-<div class="wrapper">
-        <div class="logo">
-            <img src="https://www.freepnglogos.com/uploads/twitter-logo-png/twitter-bird-symbols-png-logo-0.png" alt="">
+    <header>
+        <div class="header-img">
+            <img src="/media/media/images/top_wave.svg" alt="">
         </div>
-        <div class="text-center mt-4 name">
-            Twitter
+        <div class="header-logo">
+            <a href="/">
+                © BULL'S SHOP
+            </a>
         </div>
-        <form class="p-3 mt-3" method="post">
-            {% csrf_token %}
-            <div class="form-field d-flex align-items-center">
-                <span class="far fa-user"></span>
+
+        <div class="cart-icon">
+            <a href="/cart"><button class="cart-button">
+                <img src="/media/media/images/shop-icon.svg" alt="">
+            </button></a>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <h1>BULL'S SHOP</h1>
+            <form method="post">
+                {% csrf_token %}
                 <input type="text" name="username" id="username" placeholder="Username">
-            </div>
-            <div class="form-field d-flex align-items-center">
-                <span class="fas fa-key"></span>
                 <input type="password" name="password" id="pwd" placeholder="Password">
+                <button>Login</button>
+                <h2>{{ form.errors }}</h2>
+            </form>
+            <div>
+              <a href="#">Forget password?</a> <span>or</span> <a href="{% url 'register' %}">Sign up</a>
             </div>
-            <button class="btn mt-3">Login</button>
-            {{ form.errors }}
-        </form>
-        <div class="text-center fs-6">
-            <a href="#">Forget password?</a> or <a href="{% url 'register' %}">Sign up</a>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-title">© BULL'S SHOP 2025</div>
+            <div class="footer-a">
+                <a>Контакты</a>
+                <a href="">Copyright</a>
+                <a href="">Политика конфиденциальности</a>
+            </div>
         </div>
-    </div>
+    </footer>
 </body>
 </html>
