@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/static/css/general.css">
+    <link rel="stylesheet" href="/static/css/profile.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
@@ -28,11 +29,15 @@
     </header>
 
     <main>
-      <h1>{{ user.username }}</h1>
-      <form method="post" action="{% url 'logout' %}?next={% url 'profile' %}">
-          {% csrf_token %}
-          <button class="btn btn-primary" type="submit">Logout</button>
-      </form>
+      <h1>Личные данные</h1>
+
+      <article>
+        <h2 style="font-weight: 400">username: <span class="username">{{ user.username }}</span></h2>
+        <form method="post" action="{% url 'logout' %}?next={% url 'profile' %}">
+            {% csrf_token %}
+            <button class="btn btn-primary" type="submit">Log out</button>
+        </form>
+      </article>
     </main>
 
     <footer>

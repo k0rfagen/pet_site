@@ -15,5 +15,5 @@ urlpatterns = [
     path("cart/plus/<int:item_id>", views.plus, name="plus_one"),
     path("contacts/", views.contacts, name="contacts"),
     path("profile/", views.profile, name="profile"),
-    path('accounts/register', RegisterView.as_view(), name="register"),
+    path("accounts/register", RegisterView.as_view(), name="register"),
 ]
