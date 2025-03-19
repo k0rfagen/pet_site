@@ -1,7 +1,35 @@
+const items = document.querySelectorAll('.item');;
+
+const btn1 = document.querySelector('.btn1');
+const btn2 = document.querySelector('.btn2');
+
+btn1.addEventListener('click', () => {
+    const sortedItems = Array.from(items).sort(
+        (a, b) =>
+            a.dataset.price - b.dataset.price
+    )
+    let html = ``;
+    sortedItems.forEach((value) => {
+        html += value.outerHTML;
+    });
+    document.querySelector('.item-grid').innerHTML = html;
+});
+btn2.addEventListener('click', () => {
+    const sortedItems = Array.from(items).sort(
+        (a, b) =>
+            b.dataset.price - a.dataset.price
+    )
+    let html = ``;
+    sortedItems.forEach((value) => {
+        html += value.outerHTML;
+    });
+    document.querySelector('.item-grid').innerHTML = html;
+});
+
+
 function searchTips() {
     const input = document.querySelector('.search-text').value;
     if (input !== '') {
-        const items = document.querySelectorAll('.item');
         let finalItems = [];
         for (let i = 0; i < items.length; i++) {
             const name = items[i].querySelector('h1').innerText;
