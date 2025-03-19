@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, BaseUserCreationForm
+from django.contrib.auth.forms import UserCreationForm, BaseUserCreationForm, PasswordChangeForm
 
 from .models import *
 
@@ -20,3 +20,4 @@ class SearchForm(forms.Form):
 class RegistrationForm(BaseUserCreationForm):
     class Meta(BaseUserCreationForm.Meta):
         model = User
+        fields = BaseUserCreationForm.Meta.fields + ('email', )
