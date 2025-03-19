@@ -1,45 +1,67 @@
 const itemGrid = document.querySelector('.item-grid');
-const items = document.querySelectorAll('.item');
+const items = Array.from(document.querySelectorAll('.item'));
 
-const sortedItems0 = itemGrid.innerHTML;
-const sortedItems1 = Array.from(items).sort(
-        (a, b) =>
-            a.dataset.price - b.dataset.price
-    )
-const sortedItems2 = Array.from(items).sort(
-        (a, b) =>
-            b.dataset.price - a.dataset.price
-    )
+const btn1 = document.querySelector('.btn1');
+const btn2 = document.querySelector('.btn2');
 
-const radio0 = document.getElementById('radio0');
-const radio1 = document.getElementById('radio1');
-const radio2 = document.getElementById('radio2');
-
-const radioP = document.querySelector('.radio-p');
-
-radio0.addEventListener('change', () => {
-    itemGrid.innerHTML = sortedItems0;
-    radioP.innerText = 'По умолчанию';
-})
-
-radio1.addEventListener('change', () => {
-    let html = ``;
-    sortedItems1.forEach((value) => {
-        html += value.outerHTML;
+btn1.addEventListener('click', () => {
+    console.log(items);
+    items.sort();
+    let html = '';
+    items.forEach(() => {
+        html += `
+            <div class="item">
+                <div class="item-img">
+                    <a href="{% url 'item_card' item.id %}">
+                        <img src="{{ item.image.url }}" alt="">
+                    </a>
+                </div>
+                <div class="item-info">
+                    <div>
+                        <h1>{{ item.name }}</h1>
+                        <h2>{{ item.price }} ₽</h2>
+                    </div>
+                    <div>
+                        <form method="post" action="{% url 'add_to_cart' item.id %}">
+                            {% csrf_token  %}
+                            <button type="submit">buy</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        `
     });
-    document.querySelector('.item-grid').innerHTML = html;
-    radioP.innerText = 'По возрастанию цены';
+    itemGrid.innerHTML = html;
 });
 
-radio2.addEventListener('change', () => {
-    let html = ``;
-    sortedItems2.forEach((value) => {
-        html += value.outerHTML;
+btn2.addEventListener('click', () => {
+    items.sort((a, b) => b - a);
+    let html = '';
+    items.forEach(() => {
+        html += `
+            <div class="item">
+                <div class="item-img">
+                    <a href="{% url 'item_card' item.id %}">
+                        <img src="{{ item.image.url }}" alt="">
+                    </a>
+                </div>
+                <div class="item-info">
+                    <div>
+                        <h1>{{ item.name }}</h1>
+                        <h2>{{ item.price }} ₽</h2>
+                    </div>
+                    <div>
+                        <form method="post" action="{% url 'add_to_cart' item.id %}">
+                            {% csrf_token  %}
+                            <button type="submit">buy</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        `
     });
-    document.querySelector('.item-grid').innerHTML = html;
-    radioP.innerText = 'По убыванию цены';
+    itemGrid.innerHTML = html;
 });
-
 
 function searchTips() {
     const input = document.querySelector('.search-text').value;
