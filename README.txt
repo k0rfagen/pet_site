@@ -1,7 +1,7 @@
 ========================== README ==========================
 
 It's our project for the web site for online shop.
-We've done it with django and SQLite for then backend, and html and css for the frontend
+We've done it with django and SQLite for then backend, and html5, css3 and JavaScript for the frontend
 
 To run local host and go to site, change directory to project's main directory and enter this command to terminal:
 Windows:
