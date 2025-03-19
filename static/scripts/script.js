@@ -20,7 +20,7 @@ const radioP = document.querySelector('.radio-p');
 radio0.addEventListener('change', () => {
     itemGrid.innerHTML = sortedItems0;
     radioP.innerText = 'По умолчанию';
-})
+});
 
 radio1.addEventListener('change', () => {
     let html = ``;
