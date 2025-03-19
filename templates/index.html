@@ -11,6 +11,8 @@
     <title>Mainpage</title>
 </head>
 <body>
+    <script src="/static/scripts/script.js"></script>
+
     <header>
         <div class="header-img">
             <img src="/media/media/images/top_wave.svg" alt="">
@@ -27,11 +29,6 @@
             </button></a>
         </div>
     </header>
-
-    <div class="sort">
-      <button class="btn1">Сортировать по возрастанию</button>
-      <button class="btn2">Сортировать по убыванию</button>
-    </div>
 
     <div class="search">
         <form method="get" action="{% url 'search' %}">
@@ -50,7 +47,7 @@
 
     <div class="item-grid">
         {% for item in items %}
-            <div class="item" data-price="{{ item.price }}">
+            <div class="item">
                 <div class="item-img">
                     <a href="{% url 'item_card' item.id %}">
                         <img src="{{ item.image.url }}" alt="">
@@ -82,6 +79,5 @@
             </div>
         </div>
     </footer>
-    <script src="/static/scripts/script.js"></script>
 </body>
 </html>
