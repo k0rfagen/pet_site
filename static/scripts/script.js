@@ -1,29 +1,43 @@
-const items = document.querySelectorAll('.item');;
+const itemGrid = document.querySelector('.item-grid');
+const items = document.querySelectorAll('.item');
 
-const btn1 = document.querySelector('.btn1');
-const btn2 = document.querySelector('.btn2');
-
-btn1.addEventListener('click', () => {
-    const sortedItems = Array.from(items).sort(
+const sortedItems0 = itemGrid.innerHTML;
+const sortedItems1 = Array.from(items).sort(
         (a, b) =>
             a.dataset.price - b.dataset.price
     )
-    let html = ``;
-    sortedItems.forEach((value) => {
-        html += value.outerHTML;
-    });
-    document.querySelector('.item-grid').innerHTML = html;
-});
-btn2.addEventListener('click', () => {
-    const sortedItems = Array.from(items).sort(
+const sortedItems2 = Array.from(items).sort(
         (a, b) =>
             b.dataset.price - a.dataset.price
     )
+
+const radio0 = document.getElementById('radio0');
+const radio1 = document.getElementById('radio1');
+const radio2 = document.getElementById('radio2');
+
+const radioP = document.querySelector('.radio-p');
+
+radio0.addEventListener('change', () => {
+    itemGrid.innerHTML = sortedItems0;
+    radioP.innerText = 'По умолчанию';
+})
+
+radio1.addEventListener('change', () => {
     let html = ``;
-    sortedItems.forEach((value) => {
+    sortedItems1.forEach((value) => {
         html += value.outerHTML;
     });
     document.querySelector('.item-grid').innerHTML = html;
+    radioP.innerText = 'По возрастанию цены';
+});
+
+radio2.addEventListener('change', () => {
+    let html = ``;
+    sortedItems2.forEach((value) => {
+        html += value.outerHTML;
+    });
+    document.querySelector('.item-grid').innerHTML = html;
+    radioP.innerText = 'По убыванию цены';
 });
 
 

@@ -28,12 +28,29 @@
         </div>
     </header>
 
-    <div class="sort">
-      <button class="btn1">Сортировать по возрастанию</button>
-      <button class="btn2">Сортировать по убыванию</button>
-    </div>
-
     <div class="search">
+        <div class="sort">
+          <div class="sort-drop-button">
+            <img class="sort-arrows" src="/media/media/images/sort_arrows.png">
+            <p class="radio-p">По умолчанию</p>
+            <img class="bottom-arrow" src="/media/media/images/arrow-to-bottom.png">
+          </div>
+          <div class="sort-drop-menu">
+            <div class="sort-drop-row">
+              <input id="radio0" type="radio" name="sort" checked>
+              <label for="radio0">По умолчанию</label>
+            </div>
+            <div class="sort-drop-row">
+              <input id="radio1" type="radio" name="sort">
+              <label for="radio1">По возрастанию цены</label>
+            </div>
+            <div class="sort-drop-row">
+              <input id="radio2" type="radio" name="sort">
+              <label for="radio2">По убыванию цены</label>
+            </div>
+          </div>
+        </div>
+
         <form method="get" action="{% url 'search' %}">
             {% csrf_token %}
             {{ form.as_p }}

@@ -1,29 +1,94 @@
 .sort {
-    margin-top: 18vw;
-    height: 5vw;
+    position: absolute;
+    top: 0.4vw;
+    left: 16.5vw;
     display: flex;
-    justify-content: space-evenly;
     align-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
 }
 
-.btn1,
-.btn2 {
+.sort-drop-button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     background-color: white;
+    height: 1.7vw;
+    width: 13.4vw;
+    padding: 0.25vw;
     border: none;
-    border-radius: 5vw;
+    border-top-left-radius: 1vw;
+    border-top-right-radius: 1vw;
+}
+
+.sort:not(:hover) .sort-drop-menu {
+    display: none;
+}
+
+.sort:not(:hover) .sort-drop-button {
+    border-radius: 1vw;
+}
+
+.sort:hover .bottom-arrow{
+    transform: rotate(180deg);
+    opacity: 0.6;
+}
+
+.sort-arrows {
+    width: 1.5vw;
+    height: 1.5vw;
+}
+
+.bottom-arrow {
+    width: 1vw;
+    height: 1vw;
+    transition: transform 0.3s;
+    opacity: 1;
+}
+
+.sort-drop-button p {
+    margin: 0;
+    color: black;
+    font-size: clamp(0.2rem, 0.7vw, 1.3rem);
     font-family: "Unbounded", "Arial";
-    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.4);
-    transition: all 0.2s;
 }
 
-.btn1:hover,
-.btn2:hover {
-    background-color: rgba(255, 255, 255, 0.9);
+.sort-drop-menu {
+    display: flex;
+    flex-direction: column;
+    padding: 0.3vw 0.7vw 0 0.7vw;
+    width: 12.5vw;
+    height: 5.5vw;
+    background-color: white;
+    border-bottom-left-radius: 1vw;
+    border-bottom-right-radius: 1vw;
+    row-gap: 0.6vw;
 }
 
-.btn1:active,
-.btn2:active {
-    transform: scale(95%);
+.sort-drop-row {
+    display: flex;
+    align-items: center;
+}
+
+.sort-drop-menu label {
+    font-size: clamp(0.24rem, 0.8vw, 1.4rem);
+    font-family: "Unbounded", "Arial";
+}
+
+.sort-drop-menu input {
+    margin: 0;
+    appearance: none;
+    border-radius: 50%;
+    width: 0.7vw;
+    height: 0.7vw;
+
+    border: 0.1vw solid #999;
+    transition: 0.2s all linear;
+    margin-right: 0.4vw;
+}
+
+.sort-drop-menu input:checked {
+  border: 0.25vw solid black;
 }
 
 .search {
@@ -33,7 +98,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 }
 
 .search ul {
