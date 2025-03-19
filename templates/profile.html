@@ -36,8 +36,13 @@
         <form method="post" action="{% url 'logout' %}?next={% url 'profile' %}">
             {% csrf_token %}
             <button class="btn btn-primary" type="submit">Log out</button>
+
         </form>
       </article>
+        <form method="post" action="{% url 'password_change' %}">
+            {% csrf_token %}
+            <button class="btn btn-primary" type="submit">Change password</button>
+        </form>
     </main>
 
     <footer>
