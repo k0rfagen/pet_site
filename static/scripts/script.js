@@ -1,67 +1,31 @@
-const itemGrid = document.querySelector('.item-grid');
-const items = Array.from(document.querySelectorAll('.item'));
+const items = document.querySelectorAll('.item');;
 
 const btn1 = document.querySelector('.btn1');
 const btn2 = document.querySelector('.btn2');
 
 btn1.addEventListener('click', () => {
-    console.log(items);
-    items.sort();
-    let html = '';
-    items.forEach(() => {
-        html += `
-            <div class="item">
-                <div class="item-img">
-                    <a href="{% url 'item_card' item.id %}">
-                        <img src="{{ item.image.url }}" alt="">
-                    </a>
-                </div>
-                <div class="item-info">
-                    <div>
-                        <h1>{{ item.name }}</h1>
-                        <h2>{{ item.price }} ₽</h2>
-                    </div>
-                    <div>
-                        <form method="post" action="{% url 'add_to_cart' item.id %}">
-                            {% csrf_token  %}
-                            <button type="submit">buy</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        `
+    const sortedItems = Array.from(items).sort(
+        (a, b) =>
+            a.dataset.price - b.dataset.price
+    )
+    let html = ``;
+    sortedItems.forEach((value) => {
+        html += value.outerHTML;
     });
-    itemGrid.innerHTML = html;
+    document.querySelector('.item-grid').innerHTML = html;
+});
+btn2.addEventListener('click', () => {
+    const sortedItems = Array.from(items).sort(
+        (a, b) =>
+            b.dataset.price - a.dataset.price
+    )
+    let html = ``;
+    sortedItems.forEach((value) => {
+        html += value.outerHTML;
+    });
+    document.querySelector('.item-grid').innerHTML = html;
 });
 
-btn2.addEventListener('click', () => {
-    items.sort((a, b) => b - a);
-    let html = '';
-    items.forEach(() => {
-        html += `
-            <div class="item">
-                <div class="item-img">
-                    <a href="{% url 'item_card' item.id %}">
-                        <img src="{{ item.image.url }}" alt="">
-                    </a>
-                </div>
-                <div class="item-info">
-                    <div>
-                        <h1>{{ item.name }}</h1>
-                        <h2>{{ item.price }} ₽</h2>
-                    </div>
-                    <div>
-                        <form method="post" action="{% url 'add_to_cart' item.id %}">
-                            {% csrf_token  %}
-                            <button type="submit">buy</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        `
-    });
-    itemGrid.innerHTML = html;
-});
 
 function searchTips() {
     const input = document.querySelector('.search-text').value;
