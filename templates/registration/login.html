@@ -40,7 +40,7 @@
                 <h2>{{ form.errors }}</h2>
             </form>
             <div>
-              <a href="{% url 'password_reset' %}">Forget password?</a> <span>or</span> <a href="{% url 'register' %}">Sign up</a>
+              <a href="{% url 'password_reset' %}">Forget password?</a> <span>or</span> <a href="{% url 'shop:register' %}">Sign up</a>
             </div>
         </article>
     </main>
@@ -48,11 +48,11 @@
     <footer>
         <div class="footer-content">
             <div class="footer-title">© BULL'S SHOP 2025</div>
-            <div class="footer-a">
-                <a>Контакты</a>
+            <nav>
+                <a href="">Контакты</a>
                 <a href="">Copyright</a>
                 <a href="">Политика конфиденциальности</a>
-            </div>
+            </nav>
         </div>
     </footer>
 </body>

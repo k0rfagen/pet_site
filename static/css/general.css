@@ -42,6 +42,84 @@ header {
     color: black;
 }
 
+.profile {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    column-gap: 1vw;
+    left: 2.5vw;
+    top: 2.7vw;
+    height: 4vw;
+    z-index: 102;
+    background-color: rgba(0, 0, 0, 0);
+    transition: all 0.2s;
+}
+
+.profile-a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    column-gap: 1vw;
+}
+
+.profile-a:hover img {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.profile-a:active {
+    transform: scale(95%);
+}
+
+.profile-a img {
+    height: 4vw;
+    width: 4vw;
+    border-radius: 50%;
+}
+
+.profile-username {
+    margin: 0;
+    font-size: clamp(0rem, 1.5vw, 100rem);
+    font-family: "Rubik Glitch", "Arial";
+}
+
+.profile-login,
+.profile-register {
+    white-space: nowrap;
+    font-size: clamp(0rem, 1.1vw, 100rem);
+    text-decoration: none;
+    font-family: "Unbounded", "Arial";
+    color: white;
+    background-color: black;
+    padding: 0.5vw 1vw;
+    border: none;
+    border-radius: 0.6vw;
+    opacity: 1;
+    box-shadow: 0 0 0.5vw rgba(0, 0, 0, 0.3);
+    transition: all 0.2s;
+}
+
+.profile-login {
+    border: 0.11vw solid black;
+    padding: 0.39vw 0.89vw;
+    background-color: white;
+    color: black;
+}
+
+.profile-login:hover {
+    background-color: black;
+    color: white;
+}
+
+.profile-register:hover {
+    opacity: 0.7;
+}
+
+.profile-login:active,
+.profile-register:active {
+    transform: scale(95%);
+}
+
 .cart-button{
     position: absolute;
     right: 2.5vw;
@@ -52,7 +130,7 @@ header {
     padding: 0;
     border: none;
     border-radius: 25px;
-    transition: opacity 0.2s, transform 0.2s;
+    transition: all 0.2s;
     cursor: pointer;
 }
 
@@ -91,20 +169,21 @@ footer {
     font-family: "Rubik Glitch", "Arial";
 }
 
-.footer-a {
+nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 35vw;
 }
 
-.footer-a a{
+nav a{
     text-decoration: none;
     color: black;
     font-family: "Unbounded", "Arial";
     font-size: clamp(0.4rem, 1vw, 2.2rem);
+    cursor: pointer;
 }
 
-.footer-a a:hover {
+nav a:hover {
     color: rgba(0, 0, 0, 0.7);
 }

@@ -39,7 +39,7 @@
                     <h2>{{ item.price }} ₽</h2>
                 </div>
                 <div>
-                    <form method="post" action="{% url 'add_to_cart' item.id %}">
+                    <form method="post" action="{% url 'shop:add_to_cart' item.id %}">
                         {% csrf_token  %}
                         <button type="submit">buy</button>
                     </form>
@@ -55,13 +55,13 @@
     </main>
 
     <footer>
-        <div class="footer-content">
+        < class="footer-content">
             <div class="footer-title">© BULL'S SHOP 2025</div>
-            <div class="footer-a">
+            <nav>
                 <a href="contacts/">Контакты</a>
                 <a href="">Copyright</a>
                 <a href="">Политика конфиденциальности</a>
-            </div>
+            </nav>
         </div>
     </footer>
 </body>

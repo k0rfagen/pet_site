@@ -5,7 +5,7 @@ from pet_site import settings
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("shop.urls")),
+    path("", include("shop.urls", namespace="shop")),
     path("accounts/", include("django.contrib.auth.urls")),
 ]
 

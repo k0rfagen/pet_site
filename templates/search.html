@@ -32,7 +32,7 @@
     </header>
 
     <div class="search">
-        <form method="get" action="{% url 'search' %}">
+        <form method="get" action="{% url 'shop:search' %}">
             {% csrf_token %}
             {{ form.as_p }}
             <button class="search-button" type="submit">
@@ -56,7 +56,7 @@
                                 <h2>{{ item.price }}</h2>
                             </div>
                             <div>
-                                <form method="post" action="{% url 'add_to_cart' item.id %}">
+                                <form method="post" action="{% url 'shop:add_to_cart' item.id %}">
                                     {% csrf_token  %}
                                     <button type="submit">buy</button>
                                 </form>
@@ -81,11 +81,11 @@
     <footer>
         <div class="footer-content">
             <div class="footer-title">© BULL'S SHOP 2025</div>
-            <div class="footer-a">
+            <nav>
                 <a href="">Контакты</a>
                 <a href="">Copyright</a>
                 <a href="">Политика конфиденциальности</a>
-            </div>
+            </nav>
         </div>
     </footer>
 </body>

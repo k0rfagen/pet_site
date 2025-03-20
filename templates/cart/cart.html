@@ -40,19 +40,19 @@
                             <div class="cart-item-text">
                                 <div>{{ item.item.name }}</div>
                                 <div class="cart-item-quantity">
-                                    <form name="minus_one" method="post" action="{% url 'minus_one' item.item.id %}">
+                                    <form name="minus_one" method="post" action="{% url 'shop:minus_one' item.item.id %}">
                                     {% csrf_token %}
                                     <button type="submit">-</button>
                                 </form>
                                     <div>{{ item.quantity }} шт.</div>
-                                    <form name="plus_one" method="post" action="{% url 'plus_one' item.item.id %}">
+                                    <form name="plus_one" method="post" action="{% url 'shop:plus_one' item.item.id %}">
                                     {% csrf_token %}
                                     <button type="submit">+</button>
                                 </form>
                                 </div>
                                 <div>{{ item.get_cost }} ₽</div>
                             </div>
-                            <form name="delete" method="post" action="{% url 'remove_from_cart' item.item.id %}">
+                            <form name="delete" method="post" action="{% url 'shop:remove_from_cart' item.item.id %}">
                                 {% csrf_token %}
                                 <button type="submit" class="cart-button-delete">Удалить</button>
                             </form>
@@ -65,7 +65,7 @@
                     <div>Итого</div>
                     <div>{{ total_price }} ₽</div>
                 </div>
-                <form action="{% url 'cart_view' %}" method="post" name="delete_all">
+                <form action="{% url 'shop:cart_view' %}" method="post" name="delete_all">
                     {% csrf_token %}
                     <input type="submit" name="delete_all" value="Очистить корзину">
                 </form>
@@ -75,7 +75,7 @@
                 <div class="empty-cart-info">
                     <h1>В корзине пока пусто</h1>
                     <p>Загляните на главную, чтобы выбрать товары</p>
-                    <a href="/">
+                    <a href="{% url 'shop:mainpage' %}">
                         Перейти на главную
                     </a>
                 </div>
@@ -86,11 +86,11 @@
     <footer>
         <div class="footer-content">
             <div class="footer-title">© BULL'S SHOP 2025</div>
-            <div class="footer-a">
+            <nav>
                 <a href="">Контакты</a>
                 <a href="">Copyright</a>
                 <a href="">Политика конфиденциальности</a>
-            </div>
+            </nav>
         </div>
     </footer>
 </body>

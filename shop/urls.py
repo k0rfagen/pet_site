@@ -4,6 +4,7 @@ from django.urls import path, include
 from shop import views
 from shop.views import item_view, RegisterView
 
+app_name = "shop"
 urlpatterns = [
     path("", item_view, name="mainpage"),
     path("cart/", views.cart_view, name="cart_view"),
