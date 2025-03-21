@@ -11,6 +11,9 @@ const sortedItems2 = Array.from(items).sort(
             b.dataset.price - a.dataset.price
     )
 
+const tips = document.querySelector('.search-tips');
+const input = document.querySelector('.search-text');
+
 const radio0 = document.getElementById('radio0');
 const radio1 = document.getElementById('radio1');
 const radio2 = document.getElementById('radio2');
@@ -27,7 +30,7 @@ radio1.addEventListener('change', () => {
     sortedItems1.forEach((value) => {
         html += value.outerHTML;
     });
-    document.querySelector('.item-grid').innerHTML = html;
+    itemGrid.innerHTML = html;
     radioP.innerText = 'По возрастанию цены';
 });
 
@@ -36,42 +39,53 @@ radio2.addEventListener('change', () => {
     sortedItems2.forEach((value) => {
         html += value.outerHTML;
     });
-    document.querySelector('.item-grid').innerHTML = html;
+    itemGrid.innerHTML = html;
     radioP.innerText = 'По убыванию цены';
 });
 
-
 function searchTips() {
-    const input = document.querySelector('.search-text').value;
-    if (input !== '') {
+    const inputValue = input.value;
+    let tipHTML = '';
+    if (inputValue !== '') {
         let finalItems = [];
+        let finalUrl = [];
         for (let i = 0; i < items.length; i++) {
-            const name = items[i].querySelector('h1').innerText;
-            if (name.toLowerCase().includes(input.toLowerCase())) {
+            const item = items[i];
+            const name = item.querySelector('h1').innerText;
+            if (name.toLowerCase().includes(inputValue.toLowerCase())) {
                 finalItems.push(name);
+                finalUrl.push(item.dataset.url);
             }
         }
+        console.log(finalItems);
+        console.log(finalUrl);
         if (finalItems.length > 0) {
-            if (finalItems[0]) {
-                document.querySelector('.tip1').innerText = finalItems[0];
-                document.querySelector('.tip2').innerText = '';
-                document.querySelector('.tip3').innerText = '';
-            }
-            if (finalItems[1]) {
-                document.querySelector('.tip2').innerText = finalItems[1];
-                document.querySelector('.tip3').innerText = '';
-            }
-            if (finalItems[2]) {
-                document.querySelector('.tip3').innerText = finalItems[2];
-            }
-        } else {
-            document.querySelector('.tip1').innerText = '';
-            document.querySelector('.tip2').innerText = '';
-            document.querySelector('.tip3').innerText = '';
+            tipHTML += `
+            <div>
+                <img src="/media/media/images/search.svg">
+                <a href="${finalUrl[0]}">
+                ${finalItems[0]}</a>
+            </div>
+            `;
         }
-    } else {
-        document.querySelector('.tip1').innerText = '';
-        document.querySelector('.tip2').innerText = '';
-        document.querySelector('.tip3').innerText = '';
+        if (finalItems.length > 1) {
+            tipHTML += `
+            <div>
+                <img src="/media/media/images/search.svg">
+                <a href="${finalUrl[1]}">
+                ${finalItems[1]}</a>
+            </div>
+            `
+        }
+        if (finalItems.length > 2) {
+            tipHTML += `
+            <div>
+                <img src="/media/media/images/search.svg">
+                <a href="${finalUrl[2]}">
+                ${finalItems[2]}</a>
+            </div>
+            `;
+        }
     }
+    tips.innerHTML = tipHTML;
 }

@@ -21,6 +21,18 @@
             </a>
         </div>
 
+        <div class="profile">
+            {% if request.user.is_authenticated %}
+                <a class="profile-a" href="{% url 'shop:profile' %}">
+                  <img src="/media/media/images/profile.png">
+                  <p class="profile-username">{{ user.username }}</p>
+                </a>
+            {% else %}
+                <a class="profile-login" href="{% url 'login' %}">Log In</a>
+                <a class="profile-register" href="{% url 'shop:register' %}">Sign Up</a>
+            {% endif %}
+        </div>
+
         <div class="cart-icon">
             <a href="/cart"><button class="cart-button">
                 <img src="/media/media/images/shop-icon.svg" alt="">

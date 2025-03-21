@@ -155,28 +155,50 @@
 }
 
 .search-tips {
-    background-color: white;
     position: absolute;
     top: 4vw;
     width: 34vw;
     overflow: hidden;
-    font-size: 1.2rem;
     border-radius: 1vw;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    background-color: white;
     box-shadow: inset 0 0 1vw rgba(0, 0, 0, 0.4);
 }
 
-.tip1, .tip2, .tip3 {
-    margin-left: 1vw;
+.search-tips div {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0.3vw 0.3vw 0.3vw 1vw;
+    column-gap: 0.5vw;
+}
+
+.search-tips a {
+    display: flex;
+    border: none;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: black;
+    padding: 0;
+    background-color: transparent;
+    flex: 1;
+}
+
+.search-tips div:hover{
+    background-color: rgb(240, 240, 240);
+}
+
+.search-tips img {
+    height: 100%;
+    width: 1vw;
 }
 
 .item-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 7.5vw;
+    margin-top: 8vw;
     margin-left: 10vw;
     margin-right: 10vw;
     row-gap: 2vw;

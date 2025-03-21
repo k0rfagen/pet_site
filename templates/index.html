@@ -71,15 +71,11 @@
                 <img src="/media/media/images/search.svg" alt="">
             </button>
         </form>
-        <div class="search-tips">
-            <div class="tip1"></div>
-            <div class="tip2"></div>
-            <div class="tip3"></div>
-        </div>
-    </div>
+        <div class="search-tips"></div>
+      </div>
       <div class="item-grid">
         {% for item in items %}
-            <div class="item" data-price="{{ item.price }}">
+            <div class="item" data-price="{{ item.price }}" data-url="{% url 'shop:item_card' item.id %}">
                 <div class="item-img">
                     <a href="{% url 'shop:item_card' item.id %}">
                         <img src="{{ item.image.url }}" alt="">
@@ -99,7 +95,7 @@
                 </div>
             </div>
         {% endfor %}
-    </div>
+      </div>
     </main>
 
     <footer>
