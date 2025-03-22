@@ -16,8 +16,8 @@ article {
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
-    height: 35vw;
-    width: 25vw;
+    height: 42vw;
+    width: 30vw;
     border-radius: 3vw;
     box-shadow: inset -0.5vw -0.5vw 1vw rgba(0, 0, 0, 0.3);
 }
@@ -25,7 +25,7 @@ article {
 article h1 {
     margin: 0;
     font-family: "Rubik Glitch", "Arial";
-    font-size: clamp(0rem, 2vw , 1000rem);
+    font-size: clamp(0rem, 2.5vw , 1000rem);
 }
 
 article form {
@@ -35,16 +35,44 @@ article form {
     row-gap: 1vw;
 }
 
-article form input,
-article form button{
-    padding: 0.7vw 1.3vw;
+article form>input,
+article form>button{
+    padding: 0.9vw 1.5vw;
     border: none;
     border-radius: 1vw;
     background-color: white;
     box-shadow: inset 0.15vw 0.15vw 0.45vw rgba(0, 0, 0, 0.4);
-    font-size: clamp(0rem, 1vw, 1000rem);
+    font-size: clamp(0rem, 1.2vw, 1000rem);
     font-family: "Unbounded", "Arial";
-    max-width: 15vw;
+    max-width: 17vw;
+}
+
+.agreement {
+    display: flex;
+    align-items: center;
+    margin-top: 1vw;
+    align-self: flex-start;
+}
+
+.agree-checkbox {
+    margin: 0;
+    appearance: none;
+    height: 100%;
+    aspect-ratio: 1;
+    border: 0.1vw solid #999;
+    border-radius: 0;
+    transition: 0.2s all linear;
+    margin-right: 0.4vw;
+}
+
+.agree-checkbox:checked {
+    border: 0.45vw solid black;
+    border-radius: 50%;
+}
+
+.agree-input {
+    font-size: clamp(0rem, 0.92vw , 1000rem);
+    white-space: nowrap;
 }
 
 article form button {
@@ -56,7 +84,7 @@ article form button {
     border-radius: 2vw;
     cursor: pointer;
     transition: all 0.2s;
-    font-size: clamp(0rem, 1.3vw, 1000rem);
+    font-size: clamp(0rem, 1.5vw, 1000rem);
 }
 
 article form button:hover {
@@ -71,24 +99,26 @@ article form button:active {
     margin: 0;
     padding: 0;
     max-width: 20vw;
-    max-height: 2.5vw;
+    max-height: 3vw;
     font-size: clamp(0rem, 0.8vw, 1000rem);
     color: crimson;
+    overflow: hidden;
     ul {
         padding: 0;
         margin: 0;
     }
 }
 
-article div {
+.bottom-form {
     display: flex;
     column-gap: 0.7vw;
 }
 
-article div a,
-article div span{
+.bottom-form a,
+.bottom-form span{
     margin: 0;
     font-size: clamp(0rem, 1.1vw, 1000rem);
     font-style: italic;
     text-decoration: none;
+    white-space: nowrap;
 }

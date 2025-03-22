@@ -1,41 +1,31 @@
-<!DOCTYPE html>
-{% load static %}
-<html>
-  <head>
-  <title>SignUp Form</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Custom Theme files -->
-  <!-- //Custom Theme files -->
-  <!-- web font -->
-  <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'css/register.css' %}">
-      <!-- //web font -->
-  </head>
-  <body>
-    <!-- main -->
-    <div class="main-w3layouts wrapper">
-      <h1>SignUp Form</h1>
-      <div class="main-agileinfo">
-        <div class="agileits-top">
-          <form method="post">
-                      {% csrf_token %}
-            <input class="text" type="text" name="username" placeholder="username" required="">
-            <input class="text email" type="email" name="email" placeholder="Email" required="">
-            <input class="text" type="password" name="password1" placeholder="Password" required="">
-            <input class="text w3lpass" type="password" name="password2" placeholder="Confirm Password" required="">
-            <div class="wthree-text">
-              <label class="anim">
-                <input type="checkbox" class="checkbox" required="">
-                <span>I Agree To The Terms & Conditions</span>
-              </label>
-              <div class="clear"> </div>
-            </div>
-            <input type="submit" value="SIGNUP">
-                      {{ form.errors }}
-          </form>
-          <p>Already have an account?<a href="{% url 'login' %}"> Login Now!</a></p>
-        </div>
+{% extends 'index.html' %}
+
+{% block links %}
+  <link rel="stylesheet" href="/static/css/login-register.css">
+{% endblock %}
+
+{% block title %}
+  SignUp form
+{% endblock %}
+
+{% block main %}
+    <article>
+      <h1>BULL'S SHOP</h1>
+      <form method="post">
+          {% csrf_token %}
+          <input type="text" name="username" placeholder="username" required="">
+          <input type="email" name="email" placeholder="Email" required="">
+          <input type="password" name="password1" placeholder="Password" required="">
+          <input type="password" name="password2" placeholder="Confirm Password" required="">
+          <label class="agreement">
+            <input class="agree-checkbox" type="checkbox" required="">
+            <span class="agree-input">I Agree To The Terms & Conditions</span>
+          </label>
+          <button>Sign up</button>
+          <div class="error-list">{{ form.errors }}</div>
+      </form>
+      <div class="bottom-form">
+        <span>Already have an account?</span><a href="{% url 'login' %}"> Login Now!</a>
       </div>
-    </div>
-  </body>
-</html>
+    </article>
+{% endblock %}

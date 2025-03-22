@@ -1,7 +1,7 @@
 {% extends 'index.html' %}
 
 {% block links %}
-  <link rel="stylesheet" href="/static/css/login.css">
+  <link rel="stylesheet" href="/static/css/login-register.css">
 {% endblock %}
 
 {% block title %}
@@ -18,7 +18,7 @@
             <button>Login</button>
             <div class="error-list">{{ form.errors }}</div>
         </form>
-        <div>
+        <div class="bottom-form">
           <a href="{% url 'password_reset' %}">Forget password?</a> <span>or</span> <a href="{% url 'shop:register' %}">Sign up</a>
         </div>
     </article>

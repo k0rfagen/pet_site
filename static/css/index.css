@@ -176,7 +176,8 @@
 .search-tips a {
     display: flex;
     border: none;
-    font-size: clamp(0.4rem, 1.3vw, 2.3rem);
+    font-size: clamp(0.4rem, 1vw, 2.3rem);
+    font-family: "Unbounded", "Arial";
     text-decoration: none;
     color: black;
     padding: 0;
