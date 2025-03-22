@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/static/css/general.css">
-    <link rel="stylesheet" href="/static/css/index.css">
+    {% block links %}
+      <link rel="stylesheet" href="/static/css/index.css">
+    {% endblock %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
-    <title>Mainpage</title>
+    <title>{% block title %}Mainpage{% endblock %}</title>
 </head>
 <body>
     <header>
@@ -41,61 +43,63 @@
     </header>
 
     <main>
-      <div class="search">
-        <div class="sort">
-          <div class="sort-drop-button">
-            <img class="sort-arrows" src="/media/media/images/sort_arrows.png">
-            <p class="radio-p">По умолчанию</p>
-            <img class="bottom-arrow" src="/media/media/images/arrow-to-bottom.png">
+      {% block main %}
+        <div class="search">
+          <div class="sort">
+            <div class="sort-drop-button">
+              <img class="sort-arrows" src="/media/media/images/sort_arrows.png">
+              <p class="radio-p">По умолчанию</p>
+              <img class="bottom-arrow" src="/media/media/images/arrow-to-bottom.png">
+            </div>
+            <div class="sort-drop-menu">
+              <div class="sort-drop-row">
+                <input id="radio0" type="radio" name="sort" checked>
+                <label for="radio0">По умолчанию</label>
+              </div>
+              <div class="sort-drop-row">
+                <input id="radio1" type="radio" name="sort">
+                <label for="radio1">По возрастанию цены</label>
+              </div>
+              <div class="sort-drop-row">
+                <input id="radio2" type="radio" name="sort">
+                <label for="radio2">По убыванию цены</label>
+              </div>
+            </div>
           </div>
-          <div class="sort-drop-menu">
-            <div class="sort-drop-row">
-              <input id="radio0" type="radio" name="sort" checked>
-              <label for="radio0">По умолчанию</label>
-            </div>
-            <div class="sort-drop-row">
-              <input id="radio1" type="radio" name="sort">
-              <label for="radio1">По возрастанию цены</label>
-            </div>
-            <div class="sort-drop-row">
-              <input id="radio2" type="radio" name="sort">
-              <label for="radio2">По убыванию цены</label>
-            </div>
-          </div>
-        </div>
 
-        <form method="get" action="{% url 'shop:search' %}">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="search-button" type="submit">
-                <img src="/media/media/images/search.svg" alt="">
-            </button>
-        </form>
-        <div class="search-tips"></div>
-      </div>
-      <div class="item-grid">
-        {% for item in items %}
-            <div class="item" data-price="{{ item.price }}" data-url="{% url 'shop:item_card' item.id %}">
-                <div class="item-img">
-                    <a href="{% url 'shop:item_card' item.id %}">
-                        <img src="{{ item.image.url }}" alt="">
-                    </a>
-                </div>
-                <div class="item-info">
-                    <div>
-                        <h1>{{ item.name }}</h1>
-                        <h2>{{ item.price }} ₽</h2>
-                    </div>
-                    <div>
-                        <form method="post" action="{% url 'shop:add_to_cart' item.id %}">
-                            {% csrf_token  %}
-                            <button type="submit">buy</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-      </div>
+          <form method="get" action="{% url 'shop:search' %}">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button class="search-button" type="submit">
+                  <img src="/media/media/images/search.svg" alt="">
+              </button>
+          </form>
+          <div class="search-tips"></div>
+        </div>
+        <div class="item-grid">
+          {% for item in items %}
+              <div class="item" data-price="{{ item.price }}" data-url="{% url 'shop:item_card' item.id %}">
+                  <div class="item-img">
+                      <a href="{% url 'shop:item_card' item.id %}">
+                          <img src="{{ item.image.url }}" alt="">
+                      </a>
+                  </div>
+                  <div class="item-info">
+                      <div>
+                          <h1>{{ item.name }}</h1>
+                          <h2>{{ item.price }} ₽</h2>
+                      </div>
+                      <div>
+                          <form method="post" action="{% url 'shop:add_to_cart' item.id %}">
+                              {% csrf_token  %}
+                              <button type="submit">buy</button>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          {% endfor %}
+        </div>
+    {% endblock %}
     </main>
 
     <footer>
@@ -109,6 +113,8 @@
         </div>
     </footer>
 
-    <script src="/static/scripts/script.js"></script>
+    {% block js-script %}
+      <script src="/static/scripts/script.js"></script>
+    {% endblock %}
 </body>
 </html>

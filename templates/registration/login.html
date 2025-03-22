@@ -1,59 +1,25 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/static/css/general.css">
-    <link rel="stylesheet" href="/static/css/login.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
-    <title>Login</title>
-</head>
-<body>
-    <header>
-        <div class="header-img">
-            <img src="/media/media/images/top_wave.svg" alt="">
-        </div>
-        <div class="header-logo">
-            <a href="/">
-                © BULL'S SHOP
-            </a>
-        </div>
+{% extends 'index.html' %}
 
-        <div class="cart-icon">
-            <a href="/cart"><button class="cart-button">
-                <img src="/media/media/images/shop-icon.svg" alt="">
-            </button></a>
-        </div>
-    </header>
+{% block links %}
+  <link rel="stylesheet" href="/static/css/login.css">
+{% endblock %}
 
-    <main>
-        <article>
-            <h1>BULL'S SHOP</h1>
-            <form method="post">
-                {% csrf_token %}
-                <input type="text" name="username" id="username" placeholder="Username">
-                <input type="password" name="password" id="pwd" placeholder="Password">
-                <button>Login</button>
-                <div class="error-list">{{ form.errors }}</div>
-            </form>
-            <div>
-              <a href="{% url 'password_reset' %}">Forget password?</a> <span>or</span> <a href="{% url 'shop:register' %}">Sign up</a>
-            </div>
-        </article>
-    </main>
+{% block title %}
+  Login
+{% endblock %}
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-title">© BULL'S SHOP 2025</div>
-            <nav>
-                <a href="">Контакты</a>
-                <a href="">Copyright</a>
-                <a href="">Политика конфиденциальности</a>
-            </nav>
+{% block main %}
+    <article>
+        <h1>BULL'S SHOP</h1>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="username" id="username" placeholder="Username">
+            <input type="password" name="password" id="pwd" placeholder="Password">
+            <button>Login</button>
+            <div class="error-list">{{ form.errors }}</div>
+        </form>
+        <div>
+          <a href="{% url 'password_reset' %}">Forget password?</a> <span>or</span> <a href="{% url 'shop:register' %}">Sign up</a>
         </div>
-    </footer>
-</body>
-</html>
+    </article>
+{% endblock %}
