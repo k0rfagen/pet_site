@@ -58,7 +58,7 @@ def cart_view(request):
 
     if total_price and request.method == "POST":
         CartItem.objects.filter(cart_id=cart_id).delete()
-        return redirect("cart_view")
+        return redirect("shop:cart_view")
     for item in cart_items:
 
         if item.quantity == 0:
@@ -79,7 +79,7 @@ def remove_from_cart(request, item_id):
             cart_item.delete()
         except CartItem.DoesNotExist:
             pass
-    response = redirect("cart_view")
+    response = redirect("shop:cart_view")
     return response
 
 
@@ -120,8 +120,8 @@ def minus(request, item_id):
             cart_item.save()
             if cart_item.quantity == 0:
                 cart_item.delete()
-            return redirect("cart_view")
-    return redirect("cart_view")
+            return redirect("shop:cart_view")
+    return redirect("shop:cart_view")
 
 
 def plus(request, item_id):
@@ -132,8 +132,8 @@ def plus(request, item_id):
         if cart_item.quantity > 0:
             cart_item.quantity += 1
             cart_item.save()
-            return redirect("cart_view")
-    return redirect("cart_view")
+            return redirect("shop:cart_view")
+    return redirect("shop:cart_view")
 
 
 def contacts(request):
@@ -148,7 +148,7 @@ def profile(request):
 class RegisterView(FormView):
     form_class = RegistrationForm
     template_name = "registration/register.html"
-    success_url = reverse_lazy("profile")
+    success_url = reverse_lazy("shop:profile")
 
     def form_valid(self, form):
         form.save()

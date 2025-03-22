@@ -64,7 +64,7 @@
                                 </div>
                                 <div>{{ item.get_cost }} ₽</div>
                             </div>
-                            <form name="delete" method="post" action="{% url 'shop:remove_from_cart' item.item.id %}">
+                            <form class="delete-item-form" name="delete" method="post" action="{% url 'shop:remove_from_cart' item.item.id %}">
                                 {% csrf_token %}
                                 <button type="submit" class="cart-button-delete">Удалить</button>
                             </form>

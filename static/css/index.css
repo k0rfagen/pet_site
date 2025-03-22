@@ -46,10 +46,10 @@
     opacity: 1;
 }
 
-.sort-drop-button p {
+.radio-p {
     margin: 0;
     color: black;
-    font-size: clamp(0.2rem, 0.7vw, 1.3rem);
+    font-size: clamp(0rem, 0.75vw, 1000rem);
     font-family: "Unbounded", "Arial";
 }
 
@@ -71,7 +71,7 @@
 }
 
 .sort-drop-menu label {
-    font-size: clamp(0.24rem, 0.8vw, 1.4rem);
+    font-size: clamp(0rem, 0.75vw, 1000rem);
     font-family: "Unbounded", "Arial";
 }
 
@@ -81,7 +81,6 @@
     border-radius: 50%;
     width: 0.7vw;
     height: 0.7vw;
-
     border: 0.1vw solid #999;
     transition: 0.2s all linear;
     margin-right: 0.4vw;
@@ -177,12 +176,13 @@
 .search-tips a {
     display: flex;
     border: none;
-    font-size: 1.2rem;
+    font-size: clamp(0.4rem, 1.3vw, 2.3rem);
     text-decoration: none;
     color: black;
     padding: 0;
     background-color: transparent;
     flex: 1;
+    cursor: default;
 }
 
 .search-tips div:hover{

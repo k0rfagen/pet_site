@@ -37,7 +37,7 @@
                 <input type="text" name="username" id="username" placeholder="Username">
                 <input type="password" name="password" id="pwd" placeholder="Password">
                 <button>Login</button>
-                <h2>{{ form.errors }}</h2>
+                <div class="error-list">{{ form.errors }}</div>
             </form>
             <div>
               <a href="{% url 'password_reset' %}">Forget password?</a> <span>or</span> <a href="{% url 'shop:register' %}">Sign up</a>
