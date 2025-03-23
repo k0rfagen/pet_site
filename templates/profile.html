@@ -12,15 +12,17 @@
   <h1>Личные данные</h1>
 
   <article>
-    <h2 style="font-weight: 400">username: <span class="username">{{ user.username }}</span></h2>
-    <form method="post" action="{% url 'logout' %}?next={% url 'shop:profile' %}">
+    <div class="profile-info">
+      <h2>username: <span class="username">{{ user.username }}</span></h2>
+      <form method="post" action="{% url 'password_change' %}">
+          {% csrf_token %}
+          <button class="btn btn-primary" type="submit">Change password</button>
+      </form>
+    </div>
+    <form class="login" method="post" action="{% url 'logout' %}?next={% url 'shop:profile' %}">
         {% csrf_token %}
         <button class="btn btn-primary" type="submit">Log out</button>
-
     </form>
+
   </article>
-  <form method="post" action="{% url 'password_change' %}">
-      {% csrf_token %}
-      <button class="btn btn-primary" type="submit">Change password</button>
-  </form>
 {% endblock %}

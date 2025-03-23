@@ -9,13 +9,13 @@
 {% endblock %}
 
 {% block main %}
-    <article>
+    <article style="height: 35vw">
         <h1>BULL'S SHOP</h1>
         <form method="post">
             {% csrf_token %}
             <input type="text" name="username" id="username" placeholder="Username">
             <input type="password" name="password" id="pwd" placeholder="Password">
-            <button>Login</button>
+            <button class="submit">Login</button>
             <div class="error-list">{{ form.errors }}</div>
         </form>
         <div class="bottom-form">

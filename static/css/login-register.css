@@ -15,6 +15,7 @@ article {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    text-align: center;
     flex-direction: column;
     height: 42vw;
     width: 30vw;
@@ -25,7 +26,20 @@ article {
 article h1 {
     margin: 0;
     font-family: "Rubik Glitch", "Arial";
-    font-size: clamp(0rem, 2.5vw , 1000rem);
+    font-size: clamp(0rem, 2.5vw, 1000rem);
+}
+
+article h2 {
+    margin: 0;
+    font-family: "Unbounded", "Arial";
+    font-size: clamp(0rem, 2vw, 1000rem);
+}
+
+article p {
+    margin: 0;
+    font-family: "Unbounded", "Arial";
+    font-size: clamp(0rem, 1.1vw, 1000rem);
+    max-width: 23vw;
 }
 
 article form {
@@ -36,7 +50,7 @@ article form {
 }
 
 article form>input,
-article form>button{
+.submit{
     padding: 0.9vw 1.5vw;
     border: none;
     border-radius: 1vw;
@@ -44,7 +58,6 @@ article form>button{
     box-shadow: inset 0.15vw 0.15vw 0.45vw rgba(0, 0, 0, 0.4);
     font-size: clamp(0rem, 1.2vw, 1000rem);
     font-family: "Unbounded", "Arial";
-    max-width: 17vw;
 }
 
 .agreement {
@@ -75,7 +88,7 @@ article form>button{
     white-space: nowrap;
 }
 
-article form button {
+.submit {
     margin-top: 0.7vw;
     box-shadow: 0 0 1vw rgba(0, 0, 0, 0.5),
         inset 0 0 0.5vw rgba(255, 255, 255, 0.5);
@@ -87,11 +100,11 @@ article form button {
     font-size: clamp(0rem, 1.5vw, 1000rem);
 }
 
-article form button:hover {
+.submit:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-article form button:active {
+.submit:active {
     transform: scale(95%);
 }
 
