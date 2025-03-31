@@ -29,9 +29,9 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", 'django-insecure-ixj1rlzmucb)(4
 #DEBUG = True
 DEBUG = bool(os.environ.get("DJANGO_DEBUG", True))
 
-ALLOWED_HOSTS = [
-    'ascertain.ru'
-]
+#ALLOWED_HOSTS = [
+    #'ascertain.ru'
+#]
 
 
 # Application definition
