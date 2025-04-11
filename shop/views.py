@@ -1,13 +1,14 @@
 import uuid
-
-from django.contrib.auth.decorators import login_required
+import ssl
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import FormView, CreateView
 
-from shop.forms import SearchForm, RegistrationForm
+from shop.forms import SearchForm, RegistrationForm, AddItemForm
 from shop.models import Items, CartItem
 
 CART_COOKIE_NAME = "cart_id"
@@ -153,3 +154,25 @@ class RegisterView(FormView):
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
+
+@login_required
+def email_send_test(request):
+
+    send_mail('pisun', 'hello its just test', 'noreply@nikita-cmo.store', ['atopolev2910@gmail.com'])
+    return redirect("shop:mainpage")
+
+@user_passes_test(lambda u: u.is_staff, login_url='shop:error404')
+def add_item(request):
+    if request.method == "POST":
+        form = AddItemForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect("shop:mainpage")
+        else:
+            return render(request, 'upload.html', {"form": form})
+    else:
+        form = AddItemForm()
+    return render(request, 'upload.html', {"form": form})
+
+def error404(request):
+    return render(request, "404.html")

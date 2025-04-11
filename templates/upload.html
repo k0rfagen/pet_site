@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+<h1>Hello pisun</h1>
+<form method="post" enctype="multipart/form-data" action="{% url 'shop:upload_new_item' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add</button>
+</form>
+{{ form.errors }}
+</body>
+</html>

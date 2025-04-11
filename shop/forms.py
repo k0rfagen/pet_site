@@ -21,3 +21,9 @@ class RegistrationForm(BaseUserCreationForm):
     class Meta(BaseUserCreationForm.Meta):
         model = User
         fields = BaseUserCreationForm.Meta.fields + ('email', )
+
+class AddItemForm(forms.ModelForm):
+    class Meta:
+        model = Items
+        fields = ('name', 'price', 'description', 'image')
+
