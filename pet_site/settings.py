@@ -29,9 +29,9 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", 'django-insecure-ixj1rlzmucb)(4
 #DEBUG = True
 DEBUG = bool(os.environ.get("DJANGO_DEBUG", True))
 
-#ALLOWED_HOSTS = [
-    #'ascertain.ru'
-#]
+ALLOWED_HOSTS = [
+#   'ascertain.ru'
+]
 
 
 # Application definition
@@ -75,7 +75,14 @@ TEMPLATES = [
 ]
 
 LOGIN_REDIRECT_URL = reverse_lazy("shop:profile")
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.beget.com"
+EMAIL_HOST_USER = 'noreply@nikita-cmo.store'
+EMAIL_HOST_PASSWORD = 'Admin-2025'
+EMAIL_PORT = 143
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
 
 LOGOUT_URL = "/logout/"
 

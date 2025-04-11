@@ -7,3 +7,5 @@ from shop.models import Items
 @admin.register(Items)
 class ItemAdmin(admin.ModelAdmin):
     display = ("name", "price")
+
+
