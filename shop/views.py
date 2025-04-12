@@ -104,6 +104,9 @@ def search(request):
 
 def item_card(request, item_id):
     item = get_object_or_404(Items, pk=item_id)
+    if request.method == "POST":
+        item.delete()
+        return redirect('shop:mainpage')
     context = {
         "item": item,
         "item_id": item_id,

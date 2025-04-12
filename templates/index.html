@@ -29,6 +29,9 @@
                   <img src="/media/media/images/profile.png">
                   <p class="profile-username">{{ user.username }}</p>
                 </a>
+                {% if request.user.is_staff %}
+                    <p><a href="{% url 'shop:upload_new_item' %}">добавить товар</a></p>
+                {% endif %}
             {% else %}
                 <a class="profile-login" href="{% url 'login' %}">Log In</a>
                 <a class="profile-register" href="{% url 'shop:register' %}">Sign Up</a>
