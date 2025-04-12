@@ -23,6 +23,12 @@
                     {% csrf_token  %}
                     <button type="submit">buy</button>
                 </form>
+                {% if user.is_staff %}
+                <form method="post"  name="delete_item">
+                    {% csrf_token %}
+                    <button type="submit">удалить</button>
+                </form>
+                {% endif %}
             </div>
         </div>
     </div>
