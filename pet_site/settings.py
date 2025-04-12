@@ -30,7 +30,8 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", 'django-insecure-ixj1rlzmucb)(4
 DEBUG = bool(os.environ.get("DJANGO_DEBUG", True))
 
 ALLOWED_HOSTS = [
-#   'ascertain.ru'
+'ascertain.ru'
+'127.0.0.1',
 ]
 
 
